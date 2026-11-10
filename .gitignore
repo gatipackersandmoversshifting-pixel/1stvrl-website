@@ -1,0 +1,4 @@
+*.zip
+*.csv
+leads*
+__pycache__/

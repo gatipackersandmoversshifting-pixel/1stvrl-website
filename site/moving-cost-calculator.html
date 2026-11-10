@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moving Cost Calculator | Instant Price Band | 1st VRL Packers and Movers</title>
+<meta name="description" content="Free moving cost calculator. Pick your service, home size, distance and floor to get an instant price band. GST invoice, written quote, free survey.">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.calc{background:#fff;border:1px solid #e4e8ef;border-radius:14px;padding:26px 24px;box-shadow:0 4px 18px rgba(14,42,71,.06)}
+.svc-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0 26px}
+.svc-tab{background:#fff;border:2px solid #dfe5ee;border-radius:10px;padding:14px 10px;cursor:pointer;text-align:center;font-weight:700;font-size:14px;color:#0e2a47;transition:.15s}
+.svc-tab:hover{border-color:#0e2a47}
+.svc-tab.active{background:#0e2a47;color:#fff;border-color:#0e2a47}
+.svc-tab small{display:block;font-weight:500;font-size:11px;opacity:.75;margin-top:3px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:13px;font-weight:700;color:#0e2a47}
+.field select,.field input{padding:12px 13px;border:1px solid #cfd8e3;border-radius:8px;font-size:15px;background:#fff;color:#243043;min-height:46px}
+.field select:focus,.field input:focus{outline:2px solid #e8542f;border-color:#e8542f}
+.calc-result{margin-top:22px;background:#f5f9fe;border:1px solid #d8e4f2;border-radius:12px;padding:22px}
+.calc-result h3{margin:0 0 4px;font-size:16px;color:#0e2a47}
+.price-band{font-size:32px;font-weight:800;color:#e8542f;line-height:1.2;margin:8px 0}
+.price-note{font-size:13px;color:#5b6676;margin:0 0 14px}
+.included{list-style:none;padding:0;margin:0 0 16px;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
+.included li{font-size:13px;color:#3c4757;padding-left:20px;position:relative}
+.included li:before{content:"\2713";position:absolute;left:0;color:#1e9e5a;font-weight:700}
+.calc-cta{display:flex;flex-wrap:wrap;gap:10px}
+.calc-cta .btn{padding:13px 22px;border-radius:8px;font-weight:700;text-decoration:none;min-height:46px;display:inline-flex;align-items:center;justify-content:center;font-size:15px}
+.calc-cta .btn--primary{background:#e8542f;color:#fff}
+.calc-cta .btn--whatsapp{background:#25d366;color:#fff}
+.svc-note{font-size:13px;color:#5b6676;margin:14px 0 0;line-height:1.6}
+@media(max-width:860px){.svc-tabs{grid-template-columns:repeat(2,1fr)}.calc-grid{grid-template-columns:1fr}.included{grid-template-columns:1fr}}
+.mobile-cta{display:flex;gap:8px;padding:10px 12px;position:fixed;left:0;right:0;bottom:0;z-index:999;background:#0e2a47;box-shadow:0 -2px 12px rgba(0,0,0,.18)}
+.mobile-cta .btn{flex:1;text-align:center;padding:13px 8px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;min-height:46px;display:flex;align-items:center;justify-content:center}
+.mobile-cta .btn--primary{background:#e8542f;color:#fff}
+.mobile-cta .btn--quote{background:#fff;color:#0e2a47;border:none}
+.mobile-cta .btn--whatsapp{background:#25d366;color:#fff;border:none}
+@media(min-width:861px){.mobile-cta{display:none}}
+</style>
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="canonical" href="https://www.1stvrlpackersandmovers.com/moving-cost-calculator.html">
+<meta name="theme-color" content="#0e2a47">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Moving Cost Calculator | Instant Price Band">
+<meta property="og:description" content="Pick your service, home size, distance and floor to get an instant price band.">
+<meta property="og:url" content="https://www.1stvrlpackersandmovers.com/moving-cost-calculator.html">
+</head>
+<body>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="packers-and-movers.html">
+      <img src="assets/img/vrl-logo.webp" alt="1st VRL Packers and Movers logo" width="340" height="142">
+      <span><span class="brand__name">1st VRL Packers and Movers</span></span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="packers-and-movers.html">Home</a>
+      <a href="/services/">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="nav__phone" href="tel:+918264091243">+91 82640 91243</a>
+      <a class="btn btn--primary" href="packers-and-movers.html#quote" style="padding: 10px 20px;">Get Quote</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Moving cost <span class="accent">calculator</span></h1>
+    <p class="hero-sub">Pick a service, set the details and see a price band instantly. No form to fill, no call to wait for. The band is what our crews actually quote for that job.</p>
+    <div class="hero-cta">
+      <a class="btn btn--primary" href="tel:+918264091243">Call +91 82640 91243</a>
+      <a class="btn btn--ghost" href="https://wa.me/918264091243?text=Hi%2C%20I%20want%20a%20moving%20quote" target="_blank" rel="noopener noreferrer">WhatsApp us</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <h2>1. Pick the service type</h2>
+    <div class="svc-tabs" id="svcTabs">
+      <div class="svc-tab active" data-svc="home">Home Shifting<small>Full household</small></div>
+      <div class="svc-tab" data-svc="local">Local Shifting<small>Same city</small></div>
+      <div class="svc-tab" data-svc="intercity">Intercity<small>City to city</small></div>
+      <div class="svc-tab" data-svc="office">Office<small>Workstations &amp; servers</small></div>
+      <div class="svc-tab" data-svc="car">Car Transport<small>Open / enclosed</small></div>
+      <div class="svc-tab" data-svc="bike">Bike Transport<small>Any engine size</small></div>
+      <div class="svc-tab" data-svc="storage">Storage<small>Per month</small></div>
+      <div class="svc-tab" data-svc="industrial">Industrial<small>Machinery</small></div>
+    </div>
+
+    <h2>2. Set the details</h2>
+    <div class="calc">
+      <div class="calc-grid">
+        <div class="field">
+          <label for="size">Move size</label>
+          <select id="size">
+            <option value="1rk">Single room / 1 RK</option>
+            <option value="1bhk" selected>1 BHK</option>
+            <option value="2bhk">2 BHK</option>
+            <option value="3bhk">3 BHK</option>
+            <option value="4bhk">4 BHK / Villa</option>
+            <option value="partial">A few items only</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="dist">Distance band</label>
+          <select id="dist">
+            <option value="local" selected>Inside the city (up to 40 km)</option>
+            <option value="d1">100 to 350 km</option>
+            <option value="d2">350 to 750 km</option>
+            <option value="d3">750 to 1,200 km</option>
+            <option value="d4">1,200 to 1,700 km</option>
+            <option value="d5">1,700 km and above</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="floor">Floor and lift</label>
+          <select id="floor">
+            <option value="lift" selected>Ground floor or working lift</option>
+            <option value="1">No lift, 1 floor of stairs</option>
+            <option value="2">No lift, 2 floors of stairs</option>
+            <option value="3">No lift, 3 or more floors</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="when">When are you moving?</label>
+          <select id="when">
+            <option value="mid" selected>Mid-month weekday</option>
+            <option value="weekend">Weekend or month end</option>
+            <option value="festival">Festival or Diwali fortnight</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="insurance">Transit insurance</label>
+          <select id="insurance">
+            <option value="no" selected>Basic handling only</option>
+            <option value="yes">Full cover, 2% of declared value</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="packing">Packing level</label>
+          <select id="packing">
+            <option value="full" selected>Full packing by our crew</option>
+            <option value="fragile">Fragile items only</option>
+            <option value="self">I will pack myself</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <h3>Estimated price band</h3>
+        <div class="price-band" id="priceBand">Rs 5,000 &ndash; 9,000</div>
+        <p class="price-note" id="priceNote">Full service, 1 BHK, inside the city, ground floor or working lift. Excludes 18 per cent GST.</p>
+        <ul class="included">
+          <li>Complete packing material at cost</li>
+          <li>Labour for loading and unloading</li>
+          <li>Transport in a sized vehicle</li>
+          <li>One flight of stairs served by lift</li>
+          <li>Unpacking and furniture reassembly</li>
+          <li>Written, itemised estimate</li>
+        </ul>
+        <div class="calc-cta">
+          <a class="btn btn--primary" id="waLink" href="https://wa.me/918264091243" target="_blank" rel="noopener noreferrer">Get this in writing on WhatsApp</a>
+          <a class="btn btn--whatsapp" href="tel:+918264091243">Call +91 82640 91243</a>
+        </div>
+        <p class="svc-note">This band is an estimate from our published rate card. The exact figure comes from a free survey, which takes 15 minutes and costs nothing. Nothing on this page commits you to anything.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section--tint">
+  <div class="container">
+    <h2>What changes the price</h2>
+    <div class="interlink-grid">
+      <div class="interlink-col"><h3>Volume and vehicle</h3><ul class="interlink-list">
+        <li>A 2 BHK uses 25 to 35 cartons and a 17 ft truck</li>
+        <li>An oversized vehicle bills as a half load</li>
+        <li>An undersized vehicle needs a second trip</li>
+      </ul></div>
+      <div class="interlink-col"><h3>Access at both ends</h3><ul class="interlink-list">
+        <li>Stair carry costs Rs 800 to Rs 2,000 per floor</li>
+        <li>Narrow lanes need a shuttle at Rs 1,000 to Rs 2,500</li>
+        <li>Society gate pass and lift booking 48 hours ahead</li>
+      </ul></div>
+      <div class="interlink-col"><h3>Timing</h3><ul class="interlink-list">
+        <li>Mid-month weekdays cost 15 to 25 per cent less</li>
+        <li>Month end and festivals carry a premium</li>
+        <li>Monsoon adds waterproof packing at Rs 1,000 to Rs 2,500</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Quick answers</h2>
+    <div class="faq-list">
+      <details class="faq-item"><summary>How accurate is this calculator?</summary><p>It gives the same band our coordinators quote over the phone. The exact figure depends on the inventory, the floor access and the date, and it comes from a free 15 minute survey.</p></details>
+      <details class="faq-item"><summary>Does the price include GST?</summary><p>No. GST at 18 per cent is extra on a full service move. A transport-only booking under a goods transport agency can attract 5 per cent under reverse charge.</p></details>
+      <details class="faq-item"><summary>What if my move is not in these categories?</summary><p>Call +91 82640 91243. Industrial shifting, international relocation and partial moves are quoted per job because the equipment and the destination change the cost structure.</p></details>
+      <details class="faq-item"><summary>Is transit insurance included in the band?</summary><p>Basic handling protection is included. Full cover at 2 per cent of the declared value is a separate line and the calculator adds it when you select it.</p></details>
+      <details class="faq-item"><summary>Do I have to book after using the calculator?</summary><p>No. The calculator is free and does not commit you to anything. Use it to plan a budget, then call or WhatsApp when you are ready.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="footer__brand">
+        <img src="assets/img/vrl-logo.webp" alt="1st VRL Packers and Movers logo" width="340" height="142">
+        <p>Home and office shifting, car and bike transport and warehousing across India.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="/services/home-shifting">Home Shifting</a>
+        <a href="/services/office-relocation">Office Relocation</a>
+        <a href="/services/local-shifting">Local Shifting</a>
+        <a href="/services/intercity-relocation">Intercity Relocation</a>
+        <a href="/services/car-transportation">Car Transport</a>
+        <a href="/services/bike-transportation">Bike Transport</a>
+        <a href="/services/warehouse-storage">Warehousing and Storage</a>
+        <a href="/services/industrial-shifting">Industrial Shifting</a>
+        <a href="/services/international-relocation">International Relocation</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="packers-and-movers.html">Home</a>
+        <a href="/services/">Services</a>
+        <a href="moving-cost-calculator.html">Cost Calculator</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+        <a href="/packers-and-movers-shimla">Packers and Movers Shimla</a>
+        <a href="/packers-and-movers-jammu">Packers and Movers Jammu</a>
+        <a href="/vrl-packers-and-movers">VRL Packers and Movers</a>
+        <a href="/vrl-packers-and-movers-panchkula">VRL Packers and Movers Panchkula</a>
+        <a href="/vrl-packers-and-movers-zirakpur">VRL Packers and Movers Zirakpur</a>
+        <a href="/vrl-packers-and-movers-chandigarh">VRL Packers and Movers Chandigarh</a>
+        <a href="/vrl-packers-and-movers-mohali">VRL Packers and Movers Mohali</a>
+      </div>
+      <div class="footer__contact">
+        <h4>Address</h4>
+        <p><strong>Office:</strong> Phase 1, Baltana, Zirakpur, Punjab 140603</p>
+        <p><strong>Office:</strong> #705, Sector-7, Panchkula, Haryana 134109</p>
+        <p><strong>Jammu:</strong> Last Morh, Shop No.12, Block A, 22B, Gandhi Nagar, Jammu, J&amp;K 180003</p>
+        <p><strong>Shimla:</strong> Shop No-60, Ridge, Middle Bazar, The Mall, Shimla, Himachal Pradesh 171001</p>
+        <p><strong>GSTIN:</strong> 06AEYPV2101B1ZM</p>
+        <p><strong>Phone:</strong> <a href="tel:+918264091243">+91 82640 91243</a></p>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>&copy; <span id="year">2026</span> 1st VRL Packers and Movers. All rights reserved.</span>
+      <span>GSTIN: 06AEYPV2101B1ZM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+(function(){
+  var RATE = {
+    home:     {"1rk":[3000,6500],  "1bhk":[5000,9000],  "2bhk":[8000,15000],  "3bhk":[12000,21000], "4bhk":[17000,29000], partial:[1500,3500]},
+    local:    {"1rk":[3000,5500],  "1bhk":[5000,8000],  "2bhk":[8000,13500],  "3bhk":[12000,19000], "4bhk":[17000,26000], partial:[1200,3000]},
+    intercity:{"1rk":[8500,15000], "1bhk":[9500,17000], "2bhk":[13000,24000], "3bhk":[17000,32000], "4bhk":[23000,41000], partial:[4500,9000]},
+    office:   {"1rk":[14000,26000],"1bhk":[14000,26000],"2bhk":[26000,48000], "3bhk":[48000,90000], "4bhk":[70000,140000],partial:[8000,18000]},
+    car:      {"1rk":[5500,9000],  "1bhk":[5500,9000],  "2bhk":[8000,14000],  "3bhk":[12000,20000], "4bhk":[17000,30000], partial:[5500,9000]},
+    bike:     {"1rk":[2500,4500],  "1bhk":[3000,5000],  "2bhk":[3800,6000],   "3bhk":[5000,8000],   "4bhk":[5000,8000],   partial:[2500,4500]},
+    storage:  {"1rk":[1500,3000],  "1bhk":[3000,5500],  "2bhk":[5500,9000],   "3bhk":[8000,14000],  "4bhk":[12000,20000], partial:[1500,3000]},
+    industrial:{"1rk":[8000,18000],"1bhk":[8000,18000], "2bhk":[18000,45000], "3bhk":[25000,60000], "4bhk":[45000,120000],partial:[8000,18000]}
+  };
+  var DIST = {local:1, d1:1.15, d2:1.35, d3:1.55, d4:1.8, d5:2.15};
+  var FLOOR = {lift:1, "1":1.08, "2":1.18, "3":1.32};
+  var WHEN  = {mid:1, weekend:1.18, festival:1.28};
+  var PACK  = {full:1, fragile:0.72, self:0.55};
+  var SVC_NAME = {home:"home shifting",local:"local shifting",intercity:"intercity relocation",office:"office relocation",car:"car transport",bike:"bike transport",storage:"warehousing",industrial:"industrial shifting"};
+
+  function calc(){
+    var svc = document.querySelector('.svc-tab.active').getAttribute('data-svc');
+    var size = document.getElementById('size').value;
+    var dist = document.getElementById('dist').value;
+    var floor = document.getElementById('floor').value;
+    var when = document.getElementById('when').value;
+    var ins = document.getElementById('insurance').value;
+    var pack = document.getElementById('packing').value;
+
+    var base = RATE[svc][size] || RATE[svc]['1bhk'];
+    var mult = DIST[dist] * FLOOR[floor] * WHEN[when] * PACK[pack];
+    var lo = Math.round(base[0] * mult / 100) * 100;
+    var hi = Math.round(base[1] * mult / 100) * 100;
+    if (ins === 'yes') { lo = Math.round(lo * 1.03 / 100) * 100; hi = Math.round(hi * 1.03 / 100) * 100; }
+    if (svc !== 'storage') { if (lo < 3000) lo = 3000; if (hi < 4500) hi = 4500; if (hi < lo + 1500) hi = lo + 1500; }
+
+    var fmt = function(n){ return 'Rs ' + n.toLocaleString('en-IN'); };
+    document.getElementById('priceBand').innerHTML = fmt(lo) + ' &ndash; ' + fmt(hi);
+
+    var sizeName = document.getElementById('size').options[document.getElementById('size').selectedIndex].text;
+    var distName = document.getElementById('dist').options[document.getElementById('dist').selectedIndex].text;
+    var floorName = document.getElementById('floor').options[document.getElementById('floor').selectedIndex].text;
+    var note = 'Full service ' + SVC_NAME[svc] + ', ' + sizeName + ', ' + distName.toLowerCase() + ', ' + floorName.toLowerCase() + '.';
+    if (ins === 'yes') note += ' Includes transit cover at 2 per cent of declared value.';
+    note += ' Excludes 18 per cent GST.';
+    document.getElementById('priceNote').textContent = note;
+
+    var msg = 'Hi, I used your cost calculator.%0AService: ' + SVC_NAME[svc] +
+              '%0ASize: ' + sizeName +
+              '%0ADistance: ' + distName +
+              '%0AEstimate: ' + fmt(lo) + ' - ' + fmt(hi) +
+              '%0APlease confirm the exact figure.';
+    document.getElementById('waLink').href = 'https://wa.me/918264091243?text=' + msg;
+  }
+
+  document.querySelectorAll('.svc-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      document.querySelectorAll('.svc-tab').forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      calc();
+    });
+  });
+  ['size','dist','floor','when','insurance','packing'].forEach(function(id){
+    document.getElementById(id).addEventListener('change', calc);
+  });
+  calc();
+})();
+</script>
+<div class="mobile-cta">
+  <a class="btn btn--primary" href="tel:+918264091243">Call Now</a>
+  <a class="btn btn--quote" href="packers-and-movers.html#quote">Get Quote</a>
+  <a class="btn btn--whatsapp" href="https://wa.me/918264091243">WhatsApp</a>
+</div>
+</body>
+</html>

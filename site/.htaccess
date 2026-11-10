@@ -1,0 +1,38 @@
+# 1st VRL Packers and Movers - clean URL routing
+# Rewrite only. No access-control directives (those caused a 403 earlier).
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 301: old root service pages -> /services/ versions (Nov 2026)
+  RewriteRule ^home-shifting(\.html)?/?$ /services/home-shifting [R=301,L]
+  RewriteRule ^office-relocation(\.html)?/?$ /services/office-relocation [R=301,L]
+  RewriteRule ^local-shifting(\.html)?/?$ /services/local-shifting [R=301,L]
+  RewriteRule ^intercity-relocation(\.html)?/?$ /services/intercity-relocation [R=301,L]
+  RewriteRule ^car-transportation(\.html)?/?$ /services/car-transportation [R=301,L]
+  RewriteRule ^bike-transportation(\.html)?/?$ /services/bike-transportation [R=301,L]
+  RewriteRule ^warehouse-storage(\.html)?/?$ /services/warehouse-storage [R=301,L]
+  RewriteRule ^industrial-shifting(\.html)?/?$ /services/industrial-shifting [R=301,L]
+  RewriteRule ^international-relocation(\.html)?/?$ /services/international-relocation [R=301,L]
+  RewriteRule ^services\.html$ /services/ [R=301,L]
+
+  # Serve existing files and directories as-is
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # /about -> /about.html and /services/home-shifting -> /services/home-shifting.html
+  # (only when that .html file exists, so unknown URLs return a clean 404 instead of a 500 loop)
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+ErrorDocument 404 /404.html
+
+# If the host does not support mod_rewrite, remove this file entirely.
+
+# Keep lead lists and backups private (added Nov 2026)
+<FilesMatch "\.(csv|zip|sql|bak|log)$">
+  Require all denied
+</FilesMatch>
