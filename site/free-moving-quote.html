@@ -153,15 +153,72 @@ details p{font-size:13.5px;color:var(--mut);margin-top:8px}
 .stk a{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:12px;color:#fff;font-weight:800;font-size:15px;min-height:52px;line-height:1.15}
 .stk a small{font-weight:600;font-size:10.5px;opacity:.9}
 .stk .c{background:var(--org)}.stk .w{background:var(--wa)}.stk .q{background:var(--navy);flex:.8}
+.hd-r{display:flex;gap:8px;align-items:center}
+.hwa,.hd .num{display:none}
+@media(min-width:960px){
+ body{max-width:none;box-shadow:none;padding-bottom:0}
+ :root{--gut:max(32px,calc((100% - 1160px)/2))}
+ .stk{display:none}
+ .hd{padding:12px var(--gut)}
+ .hd .b img{height:44px}.hd .b span{font-size:17px}.hd .b small{font-size:12px}
+ .hwa{display:inline-flex;background:var(--wa);color:#fff;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px}
+ .hd .num{display:inline}.hd .call{padding:10px 18px}
+ .top{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(380px,.8fr);grid-template-areas:"hero rate" "hero form";grid-template-rows:auto 1fr;column-gap:36px;row-gap:16px;background:linear-gradient(160deg,var(--navy),var(--navy2));padding:36px var(--gut) 44px;align-items:start}
+ .hero{grid-area:hero;border-radius:22px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+ .slide{aspect-ratio:4/3.4}
+ .hero .cap{bottom:56px;padding:0 32px}
+ .hero h1{font-size:46px}
+ .hero .former{font-size:13.5px}
+ .rate{grid-area:rate;padding:0;background:none}
+ .fc{grid-area:form;padding:0;margin:0;background:none}
+ .card{padding:24px 24px 20px}
+ .card h2{font-size:24px}
+ .chips{justify-content:center;flex-wrap:wrap;overflow:visible;padding:20px var(--gut)}
+ .chip{padding:10px 16px}
+ .sec{padding:60px var(--gut)}
+ .h{font-size:32px}.s{font-size:15.5px;margin-bottom:24px}
+ .svc{grid-template-columns:repeat(3,1fr);gap:18px}
+ .sv{padding:22px}.sv h3{font-size:17px}.sv p{font-size:14px}.sv .fr{font-size:14.5px}
+ .proc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:0;padding:0;overflow:visible}
+ .pc{flex:none}.pc h3{font-size:16.5px}.pc p{font-size:13.5px}
+ .swipe{display:none}
+ #rates .tabs,#rates .rl,#rates .gst,#rates .ghost{max-width:760px}
+ #rates .ghost{display:inline-block;padding:12px 28px}
+ .rl div{font-size:16px;padding:15px 20px}
+ .rh{max-width:520px;padding:20px}
+ .cv{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;align-items:start}
+ .cv .vf{grid-column:2;grid-row:1/4;padding:26px}
+ .cv .vf h3{font-size:20px}.cv .vf ol{font-size:15.5px}
+ .cv .h{margin-top:0!important;grid-column:1;grid-row:1}
+ .cv .s{grid-column:1;grid-row:2}.cv .cov{grid-column:1;grid-row:3}
+ .faq>*{max-width:860px;margin-left:auto;margin-right:auto}
+ #quote{scroll-margin-top:84px}
+ .hero{align-self:stretch;min-height:460px}
+ .hero .slides{position:absolute;inset:0}
+ .hero .slide{aspect-ratio:auto;height:100%}
+ .size{flex-wrap:wrap;overflow:visible}
+ #rates,.rv-sec{text-align:center}
+ #rates>*,.rv-sec>*{margin-left:auto;margin-right:auto}
+ #rates .tabs,#rates .rl{text-align:left}
+ .rh{text-align:left;justify-content:center}
+ .faq{text-align:center}.faq details{margin-left:auto;margin-right:auto;text-align:left}
+ summary{font-size:16px}details p{font-size:15px}
+ .fin{padding:56px var(--gut)}
+ .fin h2{font-size:32px}.fin p{font-size:16px}
+ .fin .btn{display:inline-flex;min-width:300px;margin:0 6px}
+ .ft{padding:24px var(--gut);font-size:12.5px;text-align:center}
+}
+@media(min-width:960px) and (max-width:1199px){.hero h1{font-size:36px}}
 </style>
 </head>
 <body>
 
 <header class="hd">
   <a class="b" href="#top"><img src="/assets/img/vrl-logo.webp" alt="1st VRL Packers and Movers logo" width="340" height="142"><span>1st VRL<small>Formerly VRL Packers &amp; Movers</small></span></a>
-  <a class="call" href="tel:+918264091243" data-conv="call">📞 Call</a>
+  <span class="hd-r"><a class="hwa" href="https://wa.me/918264091243?text=Hi%2C%20I%20need%20a%20moving%20quote" data-conv="whatsapp">WhatsApp</a><a class="call" href="tel:+918264091243" data-conv="call">📞 Call<span class="num"> +91 82640 91243</span></a></span>
 </header>
 
+<div class="top">
 <section class="hero" id="top">
   <div class="slides" id="slides">
     <div class="slide"><img src="/assets/img/lp/team-group.webp" alt="1st VRL crew in uniform" style="object-position:50% 85%"><span class="tag">Our uniformed crew</span></div>
@@ -207,6 +264,7 @@ details p{font-size:13.5px;color:var(--mut);margin-top:8px}
     <div class="assure"><span>✓ No spam</span><span>✓ Free survey</span><span>✓ GST bill</span></div>
     <input type="hidden" name="page" value="/free-moving-quote"><div hidden><input name="website" tabindex="-1" autocomplete="off"></div>
   </form>
+</div>
 </div>
 
 <div class="chips">
@@ -256,13 +314,13 @@ details p{font-size:13.5px;color:var(--mut);margin-top:8px}
   <a class="ghost" href="#quote">Get my exact price</a>
 </section>
 
-<section class="sec w">
+<section class="sec w rv-sec">
   <p class="k">Reviews</p>
   <h2 class="h">Rated by our customers</h2>
   <div class="rh"><div class="sc">5.0</div><div><div class="st" style="font-size:20px">★★★★★</div><div style="font-size:12.5px;color:var(--mut)">1200+ Google reviews, Jammu and Shimla</div></div></div>
 </section>
 
-<section class="sec">
+<section class="sec cv">
   <div class="vf">
     <h3>Formerly VRL Packers and Movers. Check before you pay:</h3>
     <ol>
@@ -277,7 +335,7 @@ details p{font-size:13.5px;color:var(--mut);margin-top:8px}
   <div class="cov"><span class="o">Panchkula HQ</span><span class="o">Jammu</span><span class="o">Shimla</span><span>Chandigarh</span><span>Mohali</span><span>Zirakpur</span><span>Delhi NCR</span><span>Mumbai</span><span>Pune</span><span>Bengaluru</span><span>Hyderabad</span><span>Chennai</span><span>Kolkata</span><span>+ all India</span></div>
 </section>
 
-<section class="sec w">
+<section class="sec w faq">
   <h2 class="h">Quick answers</h2>
   <details><summary>Are there hidden charges?</summary><p>No. The written quote lists packing, labour, transport, tolls and GST as separate lines. Stairs without a lift or a long carry are shown before the move, not added later.</p></details>
   <details><summary>How fast will you call back?</summary><p>Average callback time is under 30 minutes. The booking line is open 24 hours, all seven days.</p></details>
