@@ -12,6 +12,13 @@ WA = "https://wa.me/918264091243?text=Hi%2C%20I%20need%20a%20moving%20quote"
 GSTIN = "06AEYPV2101B1ZM"
 ADDR = "#705, Sector-7, Panchkula, Haryana 134109"
 IBA = "MUK-2068"
+OFFICES = {
+ "panchkula": ("Head office", ADDR, None),
+ "jammu": ("Jammu office", "Last Morh, Shop No.12, Block A, 22B, Gandhi Nagar, Jammu, J&K 180003",
+           "https://www.google.com/maps/dir/?api=1&amp;destination=1st%20VRL%20Packers%20And%20Movers%2C%20Last%20Morh%2C%20Shop%20No.12%2C%20Block%20A%2C%2022B%2C%20Gandhi%20Nagar%2C%20Jammu%2C%20Jammu%20and%20Kashmir%20180003"),
+ "shimla": ("Shimla office", "Shop No-60, Ridge, Middle Bazar, The Mall, Shimla, Himachal Pradesh 171001",
+           "https://www.google.com/maps/dir/?api=1&amp;destination=1st%20VRL%20Packers%20And%20Movers%2C%20Shop%20No-60%2C%20Ridge%2C%20Middle%20Bazar%2C%20The%20Mall%2C%20Shimla%2C%20Himachal%20Pradesh%20171001"),
+}
 
 shimla = (SITE / "packers-and-movers-shimla.html").read_text(encoding="utf-8")
 STYLE = re.search(r"<style>.*?</style>", shimla, re.S).group(0)
@@ -220,6 +227,9 @@ def footer():
         <a href="/contact">Contact</a>
         <a href="/vrl-packers-and-movers">VRL Packers and Movers</a>
         <a href="/packers-and-movers-delhi">Packers and Movers Delhi</a>
+        <a href="/packers-and-movers-mumbai">Packers and Movers Mumbai</a>
+        <a href="/packers-and-movers-jammu">Packers and Movers Jammu</a>
+        <a href="/packers-and-movers-shimla">Packers and Movers Shimla</a>
         <a href="/privacy-policy">Privacy Policy</a>
         <a href="/terms">Terms and Conditions</a>
       </div>
@@ -262,7 +272,7 @@ def brand_page():
      ("How much does a move cost?", "A local 1 BHK move usually costs Rs 5,000 to 9,000 and a local 2 BHK Rs 8,000 to 15,000. Intercity moves depend on distance and volume. All figures exclude 18 per cent GST, and the written estimate after the survey is the final number."),
     ]
     schemas = [business_schema(slug), faq_schema(faqs), breadcrumb("VRL Packers and Movers", slug)]
-    title = "VRL Packers and Movers | Now 1st VRL Packers and Movers, Panchkula"
+    title = "VRL Packers and Movers | Now 1st VRL Packers and Movers Panchkula"
     desc = "VRL Packers and Movers, Panchkula is now 1st VRL Packers and Movers. Home, office, car and bike shifting across India. Call +91 82640 91243."
     body = head(title, desc, slug, schemas)
     body += hero('VRL Packers and Movers <span class="accent">is now 1st VRL</span>',
@@ -343,7 +353,14 @@ CITIES = {
    photos=["vrl-team-uniform","vrl-old-uniform-crew","vrl-crew-wardrobe-taping"],
    faqs=[("Is your office really in Panchkula?","Yes. Our office is at #705, Sector-7, Panchkula, Haryana 134109, and the same address is on our GST registration. You are welcome to visit before you book."),
          ("Do you shift kothis and MDC houses with a lot of furniture?","Yes. For kothis we send a larger crew, dismantle beds and wardrobes on the spot and wrap every panel before loading. The survey tells us how many people and which vehicle the job needs."),
-         ("Do you cover Pinjore, Kalka and Barwala?","Yes. Pinjore, Kalka, Barwala, Raipur Rani and the Morni Road side are covered by the same Panchkula team, with the same written estimate.")]),
+         ("Do you cover Pinjore, Kalka and Barwala?","Yes. Pinjore, Kalka, Barwala, Raipur Rani and the Morni Road side are covered by the same Panchkula team, with the same written estimate."),
+         ("Can you move my home from Panchkula up to Solan or Shimla?","Yes. Both are well under 500 km, so a 2 BHK falls in the Rs 13,000 to 24,000 plus GST band. For Shimla, our own Shimla office on The Mall helps with the hill-end carry.")],
+   more=[("Moving between Panchkula sectors",
+          ["A move from one sector to another can look simple, but each part of the city brings its own puzzle. Older sectors near the main market have kothis with deep verandas and a lot of heavy furniture, while the newer sectors and group housing towers have lifts with fixed booking hours. We note the gate width, the lift size and where the truck can stand before we fix the crew.",
+           "Because the drive is short, most sector-to-sector moves are packed and delivered on the same day. Beds, almirahs and dining tables are reassembled at the new house before the crew leaves, and empty cartons are taken back if you do not want to keep them."]),
+         ("Check us in person before you book",
+          ["Since our name changed from VRL Packers and Movers to 1st VRL Packers and Movers, some people want to be sure they are dealing with the same firm. The simplest way is to come to #705, Sector-7 and meet the person who will run your move. The GSTIN on our estimate, 06AEYPV2101B1ZM, is registered at this address.",
+           "We use one phone number, +91 82640 91243, for bookings at any hour. If you receive a quote under the VRL name from another number, call this line and we will tell you whether it is ours."])]),
  "zirakpur": dict(name="Zirakpur", state="Punjab",
    intro="Zirakpur is one of the busiest shifting markets in the Tricity, with new societies on VIP Road, Patiala Road and the Peer Muchalla side handing over flats every year. Our Panchkula team is close by and completes most 1 and 2 BHK Zirakpur moves in a single day.",
    local="Most Zirakpur moves are high-rise society flats. That means a lift booking, a fixed move-in window and, in some societies, a refundable shifting deposit. Traffic on the Zirakpur flyover and the Chandigarh-Ambala highway decides the loading time, so we plan for the truck to reach the gate before the peak hours.",
@@ -353,7 +370,14 @@ CITIES = {
    photos=["vrl-crew-stretch-wrap","vrl-crew-carton-lift","vrl-old-uniform-crew"],
    faqs=[("My society asks for a shifting deposit. What is it?","Many Zirakpur societies take a refundable deposit before a move to cover any damage to lifts or common areas. It is paid to the society, not to us, and is returned after the move. We help you book the lift slot and the gate pass."),
          ("What time is best to load in Zirakpur?","Early morning or after the evening rush. Traffic on the flyover and the Ambala highway can hold a truck for an hour at peak times, so we schedule the truck to reach your gate before it builds up."),
-         ("Can my move be finished in one day in Zirakpur?","Most 1 and 2 BHK flats are packed, moved and set up in one day when the booking is confirmed a day earlier and the lift slot is fixed. A 3 BHK or a move with a short lift window may need two days.")]),
+         ("Can my move be finished in one day in Zirakpur?","Most 1 and 2 BHK flats are packed, moved and set up in one day when the booking is confirmed a day earlier and the lift slot is fixed. A 3 BHK or a move with a short lift window may need two days."),
+         ("What does a 3 BHK move from Zirakpur to Delhi cost?","Delhi is about 250 km by road, inside the up to 500 km band, so a 3 BHK is roughly Rs 17,000 to 32,000 plus GST. The written estimate after the survey is the final figure.")],
+   more=[("Dhakoli, Peer Muchalla and the newer towers",
+          ["Dhakoli and Baltana have older independent houses and builder floors packed close together, where lanes are narrow and the truck may need to wait on the main road. Peer Muchalla and the Gazipur side have tall new towers, many still filling up, with strict rules on move timings and the use of the service lift.",
+           "Our Panchkula crew is only a short drive away, so the survey can usually be done the same day you call. We measure the lift, check for a ramp or a basement entry, and plan the truck time so the crew is not stuck at the gate."]),
+         ("Leaving Zirakpur for another city",
+          ["Many Zirakpur families are on transfer or moving for a new job in Delhi, Gurugram or further south. For these moves our crew packs and loads in Zirakpur, and a verified partner team at the destination unloads and sets up the house, all on one bill from us.",
+           "Cars and bikes can go on the same booking as separate lines. A hatchback to Gurugram, about 260 km away, is roughly Rs 5,500 to 9,000 plus GST, and a scooter roughly Rs 2,500 to 4,000 plus GST."])]),
  "chandigarh": dict(name="Chandigarh", state="Chandigarh",
    intro="Chandigarh moves are handled from our Panchkula office, a short drive away. Government houses, sector kothis and flats in Manimajra and the southern sectors each need a different plan, and the survey decides the crew size and the vehicle before the day.",
    local="Many Chandigarh moves are employee transfers: government, bank and PSU staff moving in or out of the city. These moves often need a proper GST bill and an itemised estimate for the transfer claim. For bank and PSU employees we can arrange the move through our IBA-approved partner so the bill matches what the claim needs.",
@@ -363,7 +387,14 @@ CITIES = {
    photos=["vrl-team-uniform","vrl-crew-carton-lift","vrl-crew-wardrobe-taping"],
    faqs=[("I am a bank or PSU employee on transfer. Can I get an IBA bill?","Yes. For bank and PSU transfers we arrange the move through our IBA-approved partner (code MUK-2068), so the bill and documents match what your transfer claim needs. Tell us at the time of booking."),
          ("Do you shift government houses that must be vacated by a date?","Yes. Tell us the date by which the house must be handed over and we plan the packing a day or two earlier, so the house is empty and clean in time."),
-         ("Do you handle office shifting in the IT Park and Industrial Area?","Yes. Office moves are planned after working hours or over a weekend, with systems, files and furniture labelled desk by desk so work can restart the next day.")]),
+         ("Do you handle office shifting in the IT Park and Industrial Area?","Yes. Office moves are planned after working hours or over a weekend, with systems, files and furniture labelled desk by desk so work can restart the next day."),
+         ("How much does it cost to send a sedan from Chandigarh to Bengaluru?","Bengaluru is well over 1,500 km by road, so a sedan on a carrier is roughly Rs 15,000 to 25,000 plus GST. It is quoted as its own line, separate from the household goods.")],
+   more=[("Kothis, Housing Board flats and marla houses",
+          ["Chandigarh homes come in a few clear types. The large kothis in the northern sectors have big rooms, lawns and servant quarters, and often hold decades of furniture. Housing Board flats in the southern sectors have narrow stairs and no lift, so heavy pieces are carried by hand. Marla houses in between need a compact truck that fits the lane.",
+           "The survey records which type you live in and what that means for the day: crew size, vehicle size, whether the sofa must be dismantled, and how many floors the goods must climb at the new place."]),
+         ("Long moves out of Chandigarh",
+          ["Chandigarh sends many families to Bengaluru, Pune, Hyderabad and Kolkata every year, often on a job change or a transfer. Our own Panchkula crew packs and loads at your home, and a verified partner team at the destination unloads and sets up, with our coordinator on your number throughout.",
+           "A 2 BHK to Bengaluru, more than 1,500 km away, is roughly Rs 27,000 to 47,000 plus GST. Packing for these distances uses extra layers on glass, wooden crates for fragile items and moisture covers for the long road south."])]),
  "mohali": dict(name="Mohali", state="Punjab",
    intro="Mohali has grown fast along Airport Road, Aerocity and the IT City side, and a large share of its moves are IT and corporate employees shifting in or out on short notice. Our Panchkula team covers Mohali, Kharar and New Chandigarh with a free survey and a written quote.",
    local="Mohali mixes old phase houses, new high-rise societies on Airport Road and the Kharar belt, and offices in the IT City and Industrial Area. Office moves are planned after working hours so desks and systems are ready for the next morning. For societies we confirm the lift slot and the gate pass with the management a day before.",
@@ -373,8 +404,22 @@ CITIES = {
    photos=["vrl-crew-stretch-wrap","vrl-team-uniform","vrl-old-uniform-crew"],
    faqs=[("I have joined a new job and need to move within a week. Is that possible?","Usually yes. A video survey can be done the same day, and most local Mohali moves can be scheduled within two to four days of booking. Intercity moves need a little more time to fix the vehicle."),
          ("Can you move my car or bike along with the household goods?","Yes. Cars go on a separate carrier and bikes are cradle-packed. Each is quoted as its own line on the estimate so you can see exactly what it costs."),
-         ("Do you cover Kharar and New Chandigarh?","Yes. Kharar, Sunny Enclave, New Chandigarh, Landran and Banur are covered by the same team with the same written estimate.")]),
+         ("Do you cover Kharar and New Chandigarh?","Yes. Kharar, Sunny Enclave, New Chandigarh, Landran and Banur are covered by the same team with the same written estimate."),
+         ("What does it cost to send a bike from Mohali to Pune?","Pune is more than 1,500 km away. A bike up to 150cc is roughly Rs 5,000 to 7,500 plus GST, and a scooter roughly Rs 4,500 to 7,000 plus GST, cradle-packed on a covered truck.")],
+   more=[("Aerocity, IT City and the Airport Road towers",
+          ["The newer parts of Mohali are built around wide roads and gated towers. These societies usually want a move request in advance, a named contact for the crew, and the service lift booked for a set window. Some ask that cartons are not left in the corridor, so we pack room by room and move each batch straight down.",
+           "Many residents here work in IT and fly out on short notice. A video survey and a written quote can be done the same evening, and a family member can hand over the keys if you have already left for the new city."]),
+         ("Moving between phases and sectors",
+          ["The older phases of Mohali have independent houses and builder floors with stairs, while the sectors in the 60s to 90s are mostly flats in towers. A move from a phase house to a tower flat often means less space, so we help you decide what to sell or give away before the packing starts.",
+           "Most local Mohali moves of a 1 or 2 BHK are done in one day by our own Panchkula crew. A 2 BHK local move is roughly Rs 8,000 to 15,000 plus GST, with extra floors without a lift priced as their own line."])]),
 }
+
+try:
+    sys.path.insert(0, str(Path(__file__).parent))
+    from vrl_city_data import VRL_CITIES
+    CITIES.update(VRL_CITIES)
+except ImportError:
+    pass
 
 PHOTO_META = {
  "vrl-team-uniform": ("794","836","1st VRL Packers and Movers crew in yellow uniform","Our crew in the 1st VRL uniform."),
@@ -384,22 +429,50 @@ PHOTO_META = {
  "vrl-crew-wardrobe-taping": ("1200","581","1st VRL crew taping a wrapped wardrobe panel","Wardrobe panels wrapped and taped before loading."),
 }
 def photo_grid(keys, city):
-    figs = "".join(f'<figure><img src="/assets/img/{k}.webp" alt="{PHOTO_META[k][2]}, {city}" width="{PHOTO_META[k][0]}" height="{PHOTO_META[k][1]}" loading="lazy"><figcaption>{PHOTO_META[k][3]}</figcaption></figure>' for k in keys)
+    cap = (lambda t: t) if city else (lambda t: t.replace("Our crew", "Our Panchkula crew"))
+    figs = "".join(f'<figure><img src="/assets/img/{k}.webp" alt="{PHOTO_META[k][2]}{', ' + city if city else ''}" width="{PHOTO_META[k][0]}" height="{PHOTO_META[k][1]}" loading="lazy"><figcaption>{cap(PHOTO_META[k][3])}</figcaption></figure>' for k in keys)
     return f'<div class="photo-grid">{figs}</div>'
 
 def city_page(key, c):
     slug = f"vrl-packers-and-movers-{key}"
     n = c["name"]
-    faqs = [(f"Is VRL Packers and Movers {n} the same as 1st VRL Packers and Movers?", f"Yes. VRL Packers and Movers changed its name to 1st VRL Packers and Movers in October 2026. {n} moves are run by the same team from our Sector 7, Panchkula office, under the same GSTIN {GSTIN}.")] + c["faqs"]
+    team = c.get("team", "own")
+    off = c.get("office", "panchkula")
+    if team == "partner":
+        f1 = f"Yes. VRL Packers and Movers changed its name to 1st VRL Packers and Movers in October 2026. Moves in {n} are carried out by a verified partner team and coordinated from our Sector 7, Panchkula head office, under the same GSTIN {GSTIN}."
+    elif off == "panchkula":
+        f1 = f"Yes. VRL Packers and Movers changed its name to 1st VRL Packers and Movers in October 2026. {n} moves are run by the same team from our Sector 7, Panchkula office, under the same GSTIN {GSTIN}."
+    else:
+        f1 = f"Yes. VRL Packers and Movers changed its name to 1st VRL Packers and Movers in October 2026. {n} moves are run by the same team from our own {n} office, under the same GSTIN {GSTIN}."
+    faqs = [(f"Is VRL Packers and Movers {n} the same as 1st VRL Packers and Movers?", f1)] + c["faqs"]
     schemas = [business_schema(slug, area=n), faq_schema(faqs), breadcrumb(f"VRL Packers and Movers {n}", slug)]
-    title = f"VRL Packers and Movers {n} | Now 1st VRL Packers and Movers"
-    desc = f"VRL Packers and Movers {n} is now 1st VRL. Home and office shifting with free survey, written quote and GST bill. Call {PHONE_TXT}."
+    title = c.get("title") or f"VRL Packers and Movers {n} | Now 1st VRL Packers and Movers"
+    if len(title) > 65: title = f"VRL Packers and Movers {n} | Now 1st VRL"
+    desc = c.get("desc") or f"VRL Packers and Movers {n} is now 1st VRL. Home and office shifting with free survey, written quote and GST bill. Call {PHONE_TXT}."
     areas = "".join(f"<li>{html.escape(a)}</li>" for a in c["areas"])
     routes = " &middot; ".join(html.escape(r) for r in c["routes"])
+    if team == "partner":
+        office_p = f"<p><strong>Who does the work:</strong> moves in {n} are carried out by a verified partner team and coordinated by one person from our head office at {ADDR}. We do not have our own office in {n}. <strong>Phone:</strong> <a href=\"tel:{PHONE}\">{PHONE_TXT}</a>, 24-hour booking line, all seven days.</p>"
+    else:
+        lab, addr, maps = OFFICES[off]
+        mp = f' <a href="{maps}" target="_blank" rel="noopener noreferrer">Get directions</a>.' if maps else ""
+        extra = f" Head office: {ADDR}." if off != "panchkula" else ""
+        office_p = f"<p><strong>{lab}:</strong> {addr}.{mp}{extra} <strong>Phone:</strong> <a href=\"tel:{PHONE}\">{PHONE_TXT}</a>, 24-hour booking line, all seven days.</p>"
+    more = "".join(f"""
+<section class="section{' section--tint' if i % 2 else ''}">
+  <div class="container">
+    <h2>{html.escape(h)}</h2>
+    {''.join(f'<p>{p}</p>' for p in (ps if isinstance(ps, (list, tuple)) else [ps]))}
+  </div>
+</section>
+""" for i, (h, ps) in enumerate(c.get("more", [])))
+    links = c.get("links", [])
+    links_p = ("<p><strong>Related pages:</strong> " + " &middot; ".join(f'<a href="{h}">{html.escape(t)}</a>' for h, t in links) + "</p>") if links else ""
     body = head(title, desc, slug, schemas)
-    body += hero(f'VRL Packers and Movers <span class="accent">in {n}</span>',
-                 f"{c['intro']} We were known as VRL Packers and Movers and now work as 1st VRL Packers and Movers, with the same team and the same GST number.",
+    body += hero(f'VRL Packers and Movers <span class="accent">{n}</span>',
+                 f"{c['intro']} We were known as VRL Packers and Movers and now work as 1st VRL Packers and Movers, with the same owner and the same GST number.",
                  slug)
+    alt_city = n if team != "partner" else None
     body += f"""
 <section class="section">
   <div class="container">
@@ -407,11 +480,12 @@ def city_page(key, c):
     <p>{c['local']}</p>
     <h3 style="margin-top:22px">Areas we cover in and around {n}</h3>
     <ul class="area-list">{areas}</ul>
-    <p><strong>Popular intercity routes:</strong> {routes}, and every other major city in India. For moves outside the Tricity, our coordinator stays with you and our verified partner team in the destination city handles unloading and setup, under one bill.</p>
-    <p><strong>Office:</strong> {ADDR}. <strong>Phone:</strong> <a href="tel:{PHONE}">{PHONE_TXT}</a>, 24-hour booking line, all seven days.</p>
+    <p><strong>Popular intercity routes:</strong> {routes}, and every other major city in India. For intercity moves, our coordinator stays with you and our verified partner team in the destination city handles unloading and setup, under one bill.</p>
+    {office_p}
+    {links_p}
   </div>
 </section>
-
+{more}
 <section class="section section--tint">
   <div class="container">
     <h2>What a move costs in {n}</h2>
@@ -425,7 +499,7 @@ def city_page(key, c):
   <div class="container">
     <h2>Our team at work</h2>
     <p>Real photos from our jobs, in the old VRL uniform and the new 1st VRL uniform. Estimates and invoices carry GSTIN {GSTIN}; bank and PSU transfers are handled through our IBA-approved partner (code {IBA}).</p>
-    {photo_grid(c['photos'], n)}
+    {photo_grid(c['photos'], alt_city)}
   </div>
 </section>
 
