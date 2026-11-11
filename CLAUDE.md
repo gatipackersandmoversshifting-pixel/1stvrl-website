@@ -28,7 +28,9 @@ Owner: Deepak Giri. Talk to him in Hinglish.
 - Renamed from "VRL Packers and Movers" to "1st VRL Packers and Movers" in Oct 2026. Not affiliated with VRL Logistics Ltd.
 - ISO 9001:2015 certified. No trademark (no ®). IBA approval belongs to a partner: "IBA-approved partner (code MUK-2068)" — never call the company IBA approved.
 - 2000+ moves (company + partner network).
+- Average callback time under 30 minutes (confirmed by Deepak, 2026-11-11) — keep this line on the quote form.
 - No external links except WhatsApp and the Google Maps links of own offices. Do not link or redirect vrl-packers-movers.co.in.
+- Exception (Deepak, 2026-11-11): the existing `share.google` links on packers-and-movers-jammu/shimla/india.html stay as they are. Do not remove them and never ask about them again. Do not add new ones.
 - Keep "in-house crew" wording on old service pages.
 
 ## Approved rate card (excl. 18% GST) — do not change without Deepak

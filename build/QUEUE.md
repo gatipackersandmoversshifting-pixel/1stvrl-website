@@ -22,8 +22,7 @@
 - [ ] Analytics: leads by page; report to Deepak
 
 ## Fix backlog (found by checkers, old pages)
-- [ ] Remove share.google external links from packers-and-movers-jammu/shimla/india.html (rule: only WhatsApp + own-office Maps)
 - [ ] Descriptions >160 on packers-and-movers-jammu/shimla/india.html; service page titles 77–88 chars; moving-cost-calculator title 72
-- [ ] "Average callback time under 30 minutes" in shared quote form — waiting for Deepak to confirm
+- [x] "Average callback time under 30 minutes" — confirmed true by Deepak (2026-11-11), keep
 - [ ] Delhi route pages near 0.63 duplicate — add more unique text (Delhi→Bengaluru vs Delhi→Chennai)
 - [ ] Competitor review (build/COMPETITORS.md not created yet) — next Monday run
