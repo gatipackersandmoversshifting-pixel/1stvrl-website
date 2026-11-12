@@ -26,12 +26,16 @@ body{font-family:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 /* header */
-.hd{position:sticky;top:0;z-index:40;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:8px 14px;border-bottom:1px solid var(--line)}
-.hd .b{display:flex;align-items:center;gap:8px}
+.hd{position:sticky;top:0;z-index:40;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 14px;border-bottom:1px solid var(--line)}
+.hd .b{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden}
 .hd .b img{height:34px;width:auto}
-.hd .b span{font-weight:800;color:var(--navy);font-size:14px;line-height:1.15}
+.hd .b span{font-weight:800;color:var(--navy);font-size:14px;line-height:1.15;white-space:nowrap}
 .hd .b small{display:block;white-space:nowrap;font-weight:500;color:var(--mut);font-size:10.5px}
 .hd .call{background:var(--org);color:#fff;font-weight:700;font-size:14px;padding:9px 14px;border-radius:999px;display:flex;gap:6px;align-items:center;white-space:nowrap;flex:0 0 auto}
+.hd-r{flex:0 0 auto}
+#quote{scroll-margin-top:62px}
+@media(max-width:400px){.hd{padding:8px 10px}.hd .b{gap:6px}.hd .b img{height:30px}.hd .b span{font-size:13px}.hd .b small{font-size:9.5px}.hd .call{padding:8px 12px}}
+@media(max-width:350px){.hd .b img{height:26px}.hd .b span{font-size:12px}.hd .b small{font-size:9px}.hd .call{padding:8px 10px;font-size:13px}}
 /* slider */
 .hero{position:relative;background:var(--navy)}
 .slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
@@ -209,12 +213,30 @@ details p{font-size:13.5px;color:var(--mut);margin-top:8px}
  .ft{padding:24px var(--gut);font-size:12.5px;text-align:center}
 }
 @media(min-width:960px) and (max-width:1199px){.hero h1{font-size:36px}}
+/* welcome popup */
+.wl{position:fixed;inset:0;z-index:100;background:rgba(8,26,45,.72);display:flex;align-items:center;justify-content:center;padding:18px;opacity:0;transition:opacity .3s}
+.wl.on{opacity:1}
+.wl[hidden]{display:none}
+.wl-box{position:relative;width:100%;max-width:420px;max-height:calc(100vh - 24px);overflow-x:hidden;overflow-y:auto;background:#fff;border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,.45);transform:translateY(16px) scale(.97);transition:transform .35s}
+.wl.on .wl-box{transform:none}
+.wl-photo{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:50% 80%;max-height:max(80px,calc(100vh - 300px))}
+@media(max-height:560px){.wl{padding:12px}.wl-photo{object-position:50% 72%}}
+.wl-txt{padding:18px 20px 20px;text-align:center}
+.wl-logo{display:block;height:38px;width:auto;margin:-44px auto 8px;background:#fff;border-radius:12px;padding:6px 10px;box-shadow:0 6px 16px rgba(0,0,0,.18);position:relative}
+.wl-txt h2{font-size:22px;line-height:1.25;color:var(--navy);font-weight:800}
+.wl-txt h2 b{color:var(--org)}
+.wl-txt p{font-size:13.5px;color:var(--mut);margin-top:6px}
+.wl-go{display:block;margin-top:14px;background:var(--org);color:#fff;font-weight:800;border-radius:12px;padding:13px;font-size:16px;border:0;width:100%;font-family:inherit;cursor:pointer}
+.wl-x{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(14,42,71,.75);color:#fff;font-size:22px;line-height:38px;cursor:pointer}
+.wl-bar{height:4px;background:var(--yel);width:100%;transform-origin:left;animation:wlb 5s linear forwards}
+@keyframes wlb{to{transform:scaleX(0)}}
+@media(prefers-reduced-motion:reduce){.wl,.wl-box{transition:none}.wl-bar{animation:none}}
 </style>
 </head>
 <body>
 
 <header class="hd">
-  <a class="b" href="#top"><img src="/assets/img/vrl-logo.webp" alt="1st VRL Packers and Movers logo" width="340" height="142"><span>1st VRL<small>Formerly VRL Packers &amp; Movers</small></span></a>
+  <a class="b" href="#top"><img src="/assets/img/vrl-logo.webp" alt="1st VRL Packers and Movers logo" width="340" height="142"><span>VRL Packers and Movers<small>Now 1st VRL Packers &amp; Movers</small></span></a>
   <span class="hd-r"><a class="hwa" href="https://wa.me/918264091243?text=Hi%2C%20I%20need%20a%20moving%20quote" data-conv="whatsapp">WhatsApp</a><a class="call" href="tel:+918264091243" data-conv="call">📞 Call<span class="num"> +91 82640 91243</span></a></span>
 </header>
 
@@ -354,6 +376,35 @@ details p{font-size:13.5px;color:var(--mut);margin-top:8px}
   <p><b>1st VRL Packers and Movers</b> (formerly VRL Packers and Movers)<br>#705, Sector-7, Panchkula, Haryana 134109<br>GSTIN 06AEYPV2101B1ZM · ISO 9001:2015 certified<br><a href="/privacy-policy">Privacy Policy</a> · <a href="/terms">Terms</a></p>
 </footer>
 
+<div class="wl" id="wl" role="dialog" aria-modal="true" aria-labelledby="wl-h" hidden>
+  <div class="wl-box">
+    <button class="wl-x" id="wl-x" type="button" aria-label="Close">&times;</button>
+    <img class="wl-photo" src="/assets/img/lp/team-group.webp" alt="1st VRL Packers and Movers crew in uniform" width="880" height="1173">
+    <div class="wl-bar"></div>
+    <div class="wl-txt">
+      <img class="wl-logo" src="/assets/img/vrl-logo.webp" alt="VRL Packers and Movers logo" width="340" height="142">
+      <h2 id="wl-h"><b>VRL Packers and Movers</b> में आपका स्वागत है</h2>
+      <p>Welcome! Now 1st VRL Packers and Movers. Same team, same number: +91 82640 91243</p>
+      <button class="wl-go" id="wl-go" type="button">Get Free Quote</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+var w=document.getElementById('wl');if(!w)return;
+if(/[?&]err=1/.test(location.search))return;
+try{if(sessionStorage.getItem('wlSeen'))return;}catch(e){}
+var t;function close(){clearTimeout(t);w.classList.remove('on');setTimeout(function(){w.hidden=true;},300);document.removeEventListener('keydown',esc);}
+function esc(e){if(e.key==='Escape')close();}
+w.hidden=false;requestAnimationFrame(function(){w.classList.add('on');});
+try{sessionStorage.setItem('wlSeen','1');}catch(e){}
+t=setTimeout(close,5000);
+document.getElementById('wl-x').addEventListener('click',close);
+document.getElementById('wl-go').addEventListener('click',function(){close();var q=document.getElementById('quote');if(q)q.scrollIntoView({behavior:'smooth'});});
+w.addEventListener('click',function(e){if(e.target===w)close();});
+document.addEventListener('keydown',esc);
+})();
+</script>
 <nav class="stk">
   <a class="c" href="tel:+918264091243" data-conv="call">📞 Call<small>24 hours</small></a>
   <a class="w" href="https://wa.me/918264091243?text=Hi%2C%20I%20need%20a%20moving%20quote" data-conv="whatsapp">WhatsApp<small>Chat now</small></a>
