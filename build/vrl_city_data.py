@@ -387,7 +387,7 @@ VRL_CITIES = {
            "Heavy fog on the highway in December and January can slow trucks at night. In those weeks we prefer daytime driving and add a buffer to the delivery window written on the plan."])],
    faqs=[("Is there a 1st VRL branch in Karnal?","No. We do not run a branch in Karnal. The move is carried out by a verified partner team and coordinated by our Panchkula head office at #705, Sector-7."),
          ("What does it cost to send a car from Karnal to Bengaluru?","Bengaluru is more than 1,500 km by road. A hatchback is roughly Rs 13,000 to 22,000 plus GST, and a compact SUV roughly Rs 17,000 to 28,000 plus GST, on a separate carrier."),
-         ("Can you move my parents from a village near Karnal to the city?","Yes. Moves from villages around Gharaunda, Taraori or Indri into Karnal city are quoted after a free survey, once the goods and the access at both ends are known. A 2 BHK moved within Karnal city itself is roughly Rs 8,000 to 15,000 plus GST."),
+         ("Can you move my parents from a village near Karnal to the city?","Yes. Gharaunda, Taraori and Indri are all within about 25 km of Karnal city, so these moves are priced on the local band: a 2 BHK is roughly Rs 8,000 to 15,000 plus GST, the same as a move inside the city. The survey checks the village road and the access to the house."),
          ("Do you move NDRI campus residents?","Yes. Share the date the campus house must be vacated and the gate rules. You get an itemised GST invoice for your transfer claim.")]),
 
  "kurukshetra": dict(name="Kurukshetra", state="Haryana", team="partner", office="panchkula",
@@ -426,7 +426,7 @@ VRL_CITIES = {
            "For long-distance moves, trucks from Faridabad can take the Kundli Manesar Palwal expressway from its Palwal end instead of crossing central Delhi, which saves hours on routes to Jaipur or Chandigarh. The written plan shows the route and the delivery window."])],
    faqs=[("Is there a 1st VRL office in Faridabad?","No. We have no office, branch or own crew in Faridabad. A verified partner team does the work, and it is coordinated from our head office at #705, Sector-7, Panchkula."),
          ("How much is a 3 BHK from Faridabad to Chandigarh?","Chandigarh is about 280 km away, which is the up to 500 km band, so a 3 BHK is roughly Rs 17,000 to 32,000 plus GST."),
-         ("How is a move between Faridabad and Delhi priced?","Faridabad and Delhi are treated as one metro for pricing, so the move uses the local band of our house chart. A 1 BHK is roughly Rs 5,000 to 9,000 plus GST and a 2 BHK roughly Rs 8,000 to 15,000 plus GST. The truck is timed around goods vehicle entry hours on the Delhi side."),
+         ("How is a move between Faridabad and Delhi, Noida or Gurugram priced?","A move between Faridabad and Delhi, Noida or Gurugram is treated as a move within one metro, so it uses the local band of our house chart. A 1 BHK is roughly Rs 5,000 to 9,000 plus GST and a 2 BHK roughly Rs 8,000 to 15,000 plus GST. Where the route crosses Delhi, the truck is timed around goods vehicle entry hours."),
          ("Can your own Panchkula crew unload at the Tricity end?","Yes. For moves from Faridabad to Chandigarh, Panchkula or Mohali, the partner team loads in Faridabad and our own Panchkula crew can unload and set up the home, under one bill.")]),
 
  # ---------------------------------------------------------------- Punjab (Rajpura: Panchkula crew; rest: partner)
@@ -503,7 +503,7 @@ VRL_CITIES = {
           ["From Pathankot, a lot of moves head uphill to Dalhousie, Dharamshala or Palampur, or north into Jammu and Kashmir. Hill destinations are planned with a vehicle that suits the bends, and any hand carry at the far end is priced after checking the address.",
            "Our own Jammu office is about 110 km up NH44 in Gandhi Nagar, Jammu. It does not carry out Pathankot moves, but for a move from Pathankot to Jammu our Jammu team can receive and set up the goods at the destination. Moves into Jammu and Kashmir may need extra paperwork for the goods vehicle, which the coordinator checks before booking."])],
    faqs=[("Is there a 1st VRL office in Pathankot?","No. We do not have an office in Pathankot. A verified partner team does the work, coordinated from our head office at #705, Sector-7, Panchkula. Our nearest own office is in Jammu, about 110 km away."),
-         ("Is Pathankot to Delhi in the up to 500 km band?","Usually. The road distance is about 480 km, so most addresses stay inside the up to 500 km band, where a 2 BHK is roughly Rs 13,000 to 24,000 plus GST. Addresses in south Delhi, Gurugram or Noida can cross 500 km; the survey confirms the band."),
+         ("Is Pathankot to Delhi in the up to 500 km band?","Yes. Pathankot to Delhi is about 480 km by road, so the move is in the up to 500 km band, including addresses in Gurugram and Noida. A 2 BHK is roughly Rs 13,000 to 24,000 plus GST."),
          ("What does it cost to send an SUV from Pathankot to Pune?","Pune is more than 1,500 km by road, so an SUV or MUV is roughly Rs 20,000 to 34,000 plus GST on a separate carrier."),
          ("Can you move a house from Pathankot to Dalhousie?","Yes. It is a short hill move, priced on the up to 500 km band. The truck is sized for the hill road, and any carry from the road to the house is shown on the estimate.")]),
 
@@ -641,7 +641,7 @@ VRL_CITIES = {
    faqs=[("Is there a 1st VRL office in Hisar?","No. Hisar has no 1st VRL office or branch. The move is done by a verified partner team and coordinated by our head office at #705, Sector-7, Panchkula."),
          ("What does a 3 BHK cost from Hisar to Bengaluru?","Bengaluru is more than 1,500 km by road, so a 3 BHK is roughly Rs 34,000 to 60,000 plus GST, with any car or bike quoted separately from the vehicle rate cards."),
          ("How much is a 1 BHK from Hisar to Chandigarh?","Chandigarh is about 250 km away, inside the up to 500 km band, so a 1 BHK is roughly Rs 9,500 to 17,000 plus GST."),
-         ("Can you move a house from Hansi or Barwala into Hisar?","Yes. These short moves between towns are priced on the up to 500 km band, so a 2 BHK is roughly Rs 13,000 to 24,000 plus GST. Within Hisar city itself, a 2 BHK is roughly Rs 8,000 to 15,000 plus GST.")]),
+         ("Can you move a house from Hansi or Barwala into Hisar?","Yes. Hansi and Barwala are within about 30 km of Hisar, so these moves are priced on the local band, the same as a move inside Hisar city: a 2 BHK is roughly Rs 8,000 to 15,000 plus GST.")]),
 
  "rohtak": dict(name="Rohtak", state="Haryana", team="partner", office="panchkula",
    desc="VRL Packers and Movers Rohtak now runs as 1st VRL. Homes, PGIMS and MDU staff and IMT families moved by a verified partner team, run from Panchkula.",
@@ -680,7 +680,7 @@ VRL_CITIES = {
    faqs=[("Is there a 1st VRL branch in Moga?","No. We have no office or branch in Moga. A verified partner team does the move, and our head office at #705, Sector-7, Panchkula coordinates it."),
          ("Can goods be stored after we close the house?","Yes. Storage days are quoted as a separate line on the estimate. Tell us at the survey which items go into storage so they are packed and labelled for a longer stay."),
          ("What does a sedan cost from Moga to Delhi?","Delhi is about 380 km by road, inside the up to 500 km band, so a sedan on a carrier is roughly Rs 6,500 to 10,500 plus GST."),
-         ("Can you move a house from a village near Dharamkot or Baghapurana?","Yes. The survey checks the link road and the access to the house. A move from these villages into Moga town is priced on the up to 500 km band, roughly Rs 13,000 to 24,000 plus GST for a 2 BHK.")]),
+         ("Can you move a house from a village near Dharamkot or Baghapurana?","Yes. The survey checks the link road and the access to the house. Dharamkot and Baghapurana are about 25 km from Moga, so moves from these towns and the villages around them are priced on the local band, roughly Rs 8,000 to 15,000 plus GST for a 2 BHK.")]),
 
  "phagwara": dict(name="Phagwara", state="Punjab", team="partner", office="panchkula",
    desc="VRL Packers and Movers Phagwara, now 1st VRL: LPU student rooms, faculty and family homes moved by a verified partner team, run from Panchkula.",

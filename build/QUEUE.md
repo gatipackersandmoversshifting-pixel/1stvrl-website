@@ -33,7 +33,7 @@
 - [ ] Descriptions >160 on packers-and-movers-jammu/shimla/india.html; service page titles 77–88 chars; moving-cost-calculator title 72
 - [x] "Average callback time under 30 minutes" — confirmed true by Deepak (2026-11-11), keep
 - [ ] Delhi route pages near 0.63 duplicate — add more unique text (Delhi→Bengaluru vs Delhi→Chennai)
-- [ ] Ask Deepak: Faridabad<->Noida/Gurugram and Karnal villages<->Karnal city — local band or up to 500 km band?
-- [ ] Ask Deepak: Hyderabad-Kolkata priced at 1,490 km (500-1,500 band) — OK?
+- [x] Decided 2026-11-12 (Deepak delegated): Faridabad<->Noida/Gurugram local band; moves around one city up to ~30 km local band (Karnal, Hisar, Moga updated); Hyderabad-Kolkata 1,490 km = 500-1,500 band; Pathankot-Delhi padding removed. Rules in CLAUDE.md.
+- Route rule (Deepak): only famous, high-search routes.
 - [ ] Minor (checkers): Panchkula/Zirakpur/Chandigarh/Mohali hero intro should contain "VRL Packers and Movers <city>"; reverse route pages (X-to-hyderabad) should cross-link hyderabad-to-X; consider grouping the long VRL city-links block by region
 - [ ] Competitor review (build/COMPETITORS.md not created yet) — next Monday run
