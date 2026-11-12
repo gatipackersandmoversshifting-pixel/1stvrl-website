@@ -143,7 +143,7 @@ def trust_section(city=None):
     if city:
         how = f"In {city}, packing and loading are done by a verified partner team, and a partner team at the destination unloads and sets up. One coordinator from our Panchkula head office and one bill cover the whole move."
     else:
-        how = "Moves inside the Tricity are run by our Panchkula crew. For intercity moves, our coordinator stays with you throughout and our verified partner team in the destination city handles the unloading and setup, so you deal with one company and one bill."
+        how = "Moves in the Tricity and the nearby towns are run by our own Panchkula crew, and moves in Jammu and Shimla by our own offices there. For other cities, our coordinator stays with you throughout and a verified partner team in the destination city handles the unloading and setup, so you deal with one company and one bill."
     return f"""
 <section class="section">
   <div class="container">
@@ -234,6 +234,7 @@ def footer():
         <a href="/packers-and-movers-mumbai">Packers and Movers Mumbai</a>
         <a href="/packers-and-movers-bengaluru">Packers and Movers Bengaluru</a>
         <a href="/packers-and-movers-pune">Packers and Movers Pune</a>
+        <a href="/packers-and-movers-hyderabad">Packers and Movers Hyderabad</a>
         <a href="/packers-and-movers-jammu">Packers and Movers Jammu</a>
         <a href="/packers-and-movers-shimla">Packers and Movers Shimla</a>
         <a href="/privacy-policy">Privacy Policy</a>
@@ -273,7 +274,7 @@ def brand_page():
      ("Is 1st VRL Packers and Movers the same as VRL Packers and Movers?", "Yes. VRL Packers and Movers in Panchkula changed its name to 1st VRL Packers and Movers in October 2026. The owner, the team, the office at Sector 7 Panchkula and the GST number 06AEYPV2101B1ZM are the same."),
      ("Are you part of VRL Logistics?", "No. 1st VRL Packers and Movers is an independent proprietorship based in Panchkula. It has no connection with VRL Logistics Ltd. or with other companies that use VRL in their name in Pune, Hyderabad, Mumbai or elsewhere."),
      ("How do I know I am talking to the original 1st VRL team?", "Our only booking number is +91 82640 91243 and our email ends in @1stvrlpackersandmovers.com. Every estimate and invoice carries GSTIN 06AEYPV2101B1ZM, which you can check on the GST portal. If someone quotes in our name from another number, call us before paying anything."),
-     ("Do you shift outside the Tricity?", "Yes. We run local moves in Panchkula, Zirakpur, Chandigarh and Mohali with our own crew, and intercity moves across India with our verified partner teams in the destination city. One coordinator and one bill cover the whole move."),
+     ("Do you shift outside the Tricity?", "Yes. Our own Panchkula crew handles the Tricity and the nearby towns, our Jammu and Shimla offices handle moves there, and a verified partner team does the unloading in other cities across India. One coordinator and one bill cover the whole move."),
      ("Can bank and PSU employees get a bill for their transfer claim?", "Yes. For bank and PSU transfers we arrange the move through our IBA-approved partner (code MUK-2068), so the bill and the documents match what the transfer claim needs."),
      ("How much does a move cost?", "A local 1 BHK move usually costs Rs 5,000 to 9,000 and a local 2 BHK Rs 8,000 to 15,000. Intercity moves depend on distance and volume. All figures exclude 18 per cent GST, and the written estimate after the survey is the final number."),
     ]
@@ -478,7 +479,8 @@ def city_page(key, c):
     body += hero(f'VRL Packers and Movers <span class="accent">{n}</span>',
                  f"{c['intro']} We were known as VRL Packers and Movers and now work as 1st VRL Packers and Movers, with the same owner and the same GST number.",
                  slug)
-    alt_city = n if team != "partner" else None
+    alt_city = n if off in ("jammu", "shimla") else None
+    inter_p = "Delivery in the Tricity and the nearby towns is done by our own Panchkula crew, and in Jammu and Shimla by our own office teams there. In other cities, a verified partner team handles unloading and setup, under one bill, with our coordinator on your number throughout."
     body += f"""
 <section class="section">
   <div class="container">
@@ -486,7 +488,7 @@ def city_page(key, c):
     <p>{c['local']}</p>
     <h3 style="margin-top:22px">Areas we cover in and around {n}</h3>
     <ul class="area-list">{areas}</ul>
-    <p><strong>Popular intercity routes:</strong> {routes}, and every other major city in India. For intercity moves, our coordinator stays with you and our verified partner team in the destination city handles unloading and setup, under one bill.</p>
+    <p><strong>Popular intercity routes:</strong> {routes}, and every other major city in India. {inter_p}</p>
     {office_p}
     {links_p}
   </div>
