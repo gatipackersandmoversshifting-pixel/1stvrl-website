@@ -139,7 +139,11 @@ PHOTOS = """<div class="photo-grid">
       <figure><img src="/assets/img/vrl-crew-wardrobe-taping.webp" alt="1st VRL crew taping a wrapped wardrobe panel" width="1200" height="581" loading="lazy"><figcaption>Wardrobe panels wrapped and taped before loading.</figcaption></figure>
     </div>"""
 
-def trust_section():
+def trust_section(city=None):
+    if city:
+        how = f"In {city}, packing and loading are done by a verified partner team, and a partner team at the destination unloads and sets up. One coordinator from our Panchkula head office and one bill cover the whole move."
+    else:
+        how = "Moves inside the Tricity are run by our Panchkula crew. For intercity moves, our coordinator stays with you throughout and our verified partner team in the destination city handles the unloading and setup, so you deal with one company and one bill."
     return f"""
 <section class="section">
   <div class="container">
@@ -150,7 +154,7 @@ def trust_section():
       <div><strong>GST invoice</strong><span>GSTIN {GSTIN}. Verify it on the GST portal before you book.</span></div>
       <div><strong>Bank and PSU moves</strong><span>Moves for bank and PSU transfers through our IBA-approved partner, code {IBA}.</span></div>
     </div>
-    <p style="margin-top:22px">Moves inside the Tricity are run by our Panchkula crew. For intercity moves, our coordinator stays with you throughout and our verified partner team in the destination city handles the unloading and setup, so you deal with one company and one bill.</p>
+    <p style="margin-top:22px">{how}</p>
   </div>
 </section>
 """
@@ -228,6 +232,8 @@ def footer():
         <a href="/vrl-packers-and-movers">VRL Packers and Movers</a>
         <a href="/packers-and-movers-delhi">Packers and Movers Delhi</a>
         <a href="/packers-and-movers-mumbai">Packers and Movers Mumbai</a>
+        <a href="/packers-and-movers-bengaluru">Packers and Movers Bengaluru</a>
+        <a href="/packers-and-movers-pune">Packers and Movers Pune</a>
         <a href="/packers-and-movers-jammu">Packers and Movers Jammu</a>
         <a href="/packers-and-movers-shimla">Packers and Movers Shimla</a>
         <a href="/privacy-policy">Privacy Policy</a>
