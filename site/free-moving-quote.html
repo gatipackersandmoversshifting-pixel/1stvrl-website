@@ -228,7 +228,7 @@ details p{font-size:13.5px;color:var(--mut);margin-top:8px}
 .wl-txt p{font-size:13.5px;color:var(--mut);margin-top:6px}
 .wl-go{display:block;margin-top:14px;background:var(--org);color:#fff;font-weight:800;border-radius:12px;padding:13px;font-size:16px;border:0;width:100%;font-family:inherit;cursor:pointer}
 .wl-x{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(14,42,71,.75);color:#fff;font-size:22px;line-height:38px;cursor:pointer}
-.wl-bar{height:4px;background:var(--yel);width:100%;transform-origin:left;animation:wlb 5s linear forwards}
+.wl-bar{height:4px;background:var(--yel);width:100%;transform-origin:left;animation:wlb 3s linear forwards}
 @keyframes wlb{to{transform:scaleX(0)}}
 @media(prefers-reduced-motion:reduce){.wl,.wl-box{transition:none}.wl-bar{animation:none}}
 </style>
@@ -383,8 +383,8 @@ details p{font-size:13.5px;color:var(--mut);margin-top:8px}
     <div class="wl-bar"></div>
     <div class="wl-txt">
       <img class="wl-logo" src="/assets/img/vrl-logo.webp" alt="VRL Packers and Movers logo" width="340" height="142">
-      <h2 id="wl-h"><b>VRL Packers and Movers</b> में आपका स्वागत है</h2>
-      <p>Welcome! Now 1st VRL Packers and Movers. Same team, same number: +91 82640 91243</p>
+      <h2 id="wl-h">Welcome to <b>VRL Packers and Movers</b></h2>
+      <p>Now 1st VRL Packers and Movers. Same team, same number: +91&nbsp;82640&nbsp;91243</p>
       <button class="wl-go" id="wl-go" type="button">Get Free Quote</button>
     </div>
   </div>
@@ -398,7 +398,7 @@ var t;function close(){clearTimeout(t);w.classList.remove('on');setTimeout(funct
 function esc(e){if(e.key==='Escape')close();}
 w.hidden=false;requestAnimationFrame(function(){w.classList.add('on');});
 try{sessionStorage.setItem('wlSeen','1');}catch(e){}
-t=setTimeout(close,5000);
+t=setTimeout(close,3000);
 document.getElementById('wl-x').addEventListener('click',close);
 document.getElementById('wl-go').addEventListener('click',function(){close();var q=document.getElementById('quote');if(q)q.scrollIntoView({behavior:'smooth'});});
 w.addEventListener('click',function(e){if(e.target===w)close();});
