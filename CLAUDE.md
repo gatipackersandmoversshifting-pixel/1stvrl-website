@@ -25,6 +25,8 @@ Owner: Deepak Giri. Talk to him in Hinglish.
 - GSTIN 06AEYPV2101B1ZM, registered 27 Apr 2023. Proprietorship.
 - Offices (own): #705, Sector-7, Panchkula, Haryana 134109 (head office); Jammu (Last Morh, Shop No.12, Block A, 22B, Gandhi Nagar, 180003); Shimla (Shop No-60, Ridge, Middle Bazar, The Mall, 171001). Zirakpur office is CLOSED — never show it.
 - Other cities: work is done by verified partner teams. Never claim an office/branch there.
+- Own Panchkula crew (Deepak, 2026-11-12: "humaari team jaati hai paas ki saari cities me"): Tricity + every nearby town up to about 80 km road from Panchkula is served by OUR OWN crew from the Panchkula office (no office there): Kharar, Dera Bassi, Pinjore, Kalka, Banur, Ropar, Morinda, Solan, Baddi, Nalagarh, Rajpura, Ambala, Patiala. Cities farther away = verified partner teams unless Deepak says otherwise.
+- Same-metro moves are priced on the LOCAL band of the house chart (decided 2026-11-12): Delhi <-> Noida / Greater Noida / Gurugram / Faridabad / Ghaziabad; Mumbai <-> Thane / Navi Mumbai; Pune <-> Pimpri-Chinchwad; Tricity <-> Dera Bassi / Kharar / Pinjore / Kalka / Banur. Show the local band (not "quoted after survey") for these.
 - Renamed from "VRL Packers and Movers" to "1st VRL Packers and Movers" in Oct 2026. Not affiliated with VRL Logistics Ltd.
 - ISO 9001:2015 certified. No trademark (no ®). IBA approval belongs to a partner: "IBA-approved partner (code MUK-2068)" — never call the company IBA approved.
 - 2000+ moves (company + partner network).

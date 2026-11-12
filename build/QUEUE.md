@@ -25,8 +25,8 @@
 - [ ] Analytics: leads by page; report to Deepak
 
 ## Fix backlog (found by checkers, old pages)
-- [ ] NEEDS DEEPAK: are moves between NCR cities (Faridabad/Ghaziabad/Noida/Gurugram <-> Delhi), Pune <-> Pimpri-Chinchwad, Mumbai <-> Thane/Navi Mumbai, Dera Bassi <-> Tricity priced on the local band? New pages say 'quoted after survey' until he confirms; old Mumbai and Dera Bassi pages still say local.
-- [ ] NEEDS DEEPAK: do Solan, Baddi, Nalagarh, Rajpura get our own Panchkula crew? (published as partner-team pages for now)
+- [ ] **DO FIRST (decided 2026-11-12, see CLAUDE.md):** switch Solan, Baddi, Nalagarh, Rajpura, Ambala, Patiala VRL pages to team="own" (own Panchkula crew, coordinated from Panchkula, no office there) in build/vrl_city_data.py; rewrite their partner-team sentences and FAQs; regenerate; 2 checks; publish.
+- [ ] **DO FIRST:** replace every "quoted after survey" for same-metro moves with the local house band (Delhi<->Noida/Gurugram/Faridabad/Ghaziabad, Mumbai<->Thane/Navi Mumbai, Pune<->Pimpri-Chinchwad, Tricity<->Dera Bassi etc.) on: vrl-packers-and-movers-faridabad/ghaziabad/noida/dera-bassi/karnal(check), packers-and-movers-pune and any route/city page with that wording; 2 checks; publish.
 - [ ] Tidy: Ambala page lists Zirakpur as a destination (not an office) — fine, recheck wording
 - [ ] Descriptions >160 on packers-and-movers-jammu/shimla/india.html; service page titles 77–88 chars; moving-cost-calculator title 72
 - [x] "Average callback time under 30 minutes" — confirmed true by Deepak (2026-11-11), keep
