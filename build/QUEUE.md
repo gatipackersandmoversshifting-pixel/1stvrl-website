@@ -11,7 +11,7 @@
 - [x] VRL Packers and Movers Solan, Baddi, Nalagarh, Yamunanagar, Karnal, Kurukshetra, Rajpura, Bathinda, Hoshiarpur, Pathankot, Faridabad, Ghaziabad — 2026-11-12
 - [x] VRL Packers and Movers Ropar, Morinda, Banur (own crew), Panipat, Sonipat, Hisar, Rohtak, Moga, Phagwara, Kapurthala, Mandi, Dharamshala — 2026-11-12
 - [x] VRL Packers and Movers Kurali, Sirhind, Nahan (own crew), Nangal, Anandpur Sahib, Jind, Kaithal, Bhiwani, Sirsa, Ferozepur, Barnala, Sangrur, Kangra, Hamirpur, Una, Bilaspur (HP), Paonta Sahib, Haridwar, Rishikesh — 2026-11-13
-- [ ] Khanna — WAITING for Deepak: road km from Panchkula ~75–83 (borderline of the 80 km own-crew radius). Own crew or partner team?
+- [x] VRL Packers and Movers Khanna (own Panchkula crew, Deepak confirmed) — 2026-11-13
 - [ ] Next VRL cities: Mandi Gobindgarh, Samrala, Fatehabad, Narnaul, Rewari, Palwal, Jhajjar, Kullu, Manali, Palampur, Chamba, Sundernagar, Roorkee, Saharanpur, Muzaffarnagar, Meerut, Batala, Gurdaspur, Tarn Taran, Muktsar
 
 ## Phase 2 — "Packers and movers <city>" + routes (6 routes each)
@@ -37,7 +37,7 @@
 ## Fix backlog (found by checkers, old pages)
 - [x] (2026-11-13) VRL city pages: full 60+ link list replaced by short "VRL Packers and Movers near <city>" regional block (same-state, rotated) — duplicate share dropped from ~0.64 to <0.57; brand page + index keep the full list
 - [ ] Reverse route cross-links: delhi/mumbai/bengaluru/pune/hyderabad-to-chennai should link chennai-to-X (and vice versa)
-- [ ] Kurali <-> Mohali/Kharar priced on up to 500 km band (Kurali not in Tricity local list) — ask Deepak if Kurali should join the Tricity local list
+- [x] Kurali <-> Mohali/Kharar stays on up to 500 km band — Deepak 2026-11-13: keep as is
 - [x] (done 2026-11-12) switch Solan, Baddi, Nalagarh, Rajpura, Ambala, Patiala VRL pages to team="own" (own Panchkula crew, coordinated from Panchkula, no office there) in build/vrl_city_data.py; rewrite their partner-team sentences and FAQs; regenerate; 2 checks; publish.
 - [x] (done 2026-11-12: Faridabad, Ghaziabad, Pune; Karnal village FAQ waits for Deepak) replace every "quoted after survey" for same-metro moves with the local house band (Delhi<->Noida/Gurugram/Faridabad/Ghaziabad, Mumbai<->Thane/Navi Mumbai, Pune<->Pimpri-Chinchwad, Tricity<->Dera Bassi etc.) on: vrl-packers-and-movers-faridabad/ghaziabad/noida/dera-bassi/karnal(check), packers-and-movers-pune and any route/city page with that wording; 2 checks; publish.
 - [ ] Tidy: Ambala page lists Zirakpur as a destination (not an office) — fine, recheck wording
