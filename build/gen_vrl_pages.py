@@ -155,7 +155,7 @@ def trust_section(city=None):
       <div><strong>Written estimate</strong><span>Itemised before any advance is paid. The figure on paper is the figure at delivery.</span></div>
       <div><strong>One coordinator</strong><span>One person on your number from the survey to the last carton.</span></div>
       <div><strong>GST invoice</strong><span>GSTIN {GSTIN}. Verify it on the GST portal before you book.</span></div>
-      <div><strong>Bank and PSU moves</strong><span>Moves for bank and PSU transfers through our IBA-approved partner, code {IBA}.</span></div>
+      <div><strong>Bank and PSU moves</strong><span>Bank and PSU transfer moves are handled through our IBA-approved partner (code {IBA}).</span></div>
     </div>
     <p style="margin-top:22px">{how}</p>
   </div>
@@ -206,6 +206,21 @@ def breadcrumb(name, slug):
         {"@type":"ListItem","position":1,"name":"Home","item":f"{BASE}/"},
         {"@type":"ListItem","position":2,"name":name,"item":f"{BASE}/{slug}"}]}
 
+def nearby_links(key, n=10):
+    """Short regional list for a city page: same-state VRL pages (rotated so every page gets inbound links), filled up from the full list."""
+    keys = list(CITIES)
+    st = CITIES[key].get("state")
+    same = [k for k in keys if k != key and CITIES[k].get("state") == st]
+    if same:
+        i = keys.index(key)
+        after = [k for k in same if keys.index(k) > i]; before = [k for k in same if keys.index(k) < i]
+        same = after + before
+    pick = same[:n]
+    if len(pick) < 6:
+        pick += [k for k in keys if k != key and k not in pick][:6 - len(pick)]
+    links = [('/vrl-packers-and-movers','VRL Packers and Movers (all cities)')] + [(f'/vrl-packers-and-movers-{k}', f'VRL Packers and Movers {CITIES[k]["name"]}') for k in pick] + [('/packers-and-movers-shimla.html','Packers and Movers Shimla'),('/packers-and-movers-jammu.html','Packers and Movers Jammu')]
+    return "\n".join(f'      <a href="{h}">{t}</a>' for h,t in links)
+
 def city_links(exclude=None):
     links = [('/vrl-packers-and-movers','VRL Packers and Movers')] + [(f'/vrl-packers-and-movers-{k}', f'VRL Packers and Movers {v["name"]}') for k,v in CITIES.items()] + [('/packers-and-movers-shimla.html','Packers and Movers Shimla'),('/packers-and-movers-jammu.html','Packers and Movers Jammu')]
     return "\n".join(f'      <a href="{h}">{t}</a>' for h,t in links if h != exclude)
@@ -252,6 +267,7 @@ def footer():
         <a href="/packers-and-movers-bengaluru">Packers and Movers Bengaluru</a>
         <a href="/packers-and-movers-pune">Packers and Movers Pune</a>
         <a href="/packers-and-movers-hyderabad">Packers and Movers Hyderabad</a>
+        <a href="/packers-and-movers-chennai">Packers and Movers Chennai</a>
         <a href="/packers-and-movers-jammu">Packers and Movers Jammu</a>
         <a href="/packers-and-movers-shimla">Packers and Movers Shimla</a>
         <a href="/privacy-policy">Privacy Policy</a>
@@ -453,8 +469,8 @@ PHOTO_META = {
  "vrl-crew-carton-lift": ("892","774","Packed carton sealed with 1st VRL branded tape","Cartons sealed with our own branded tape."),
  "vrl-crew-wardrobe-taping": ("1200","581","1st VRL crew taping a wrapped wardrobe panel","Wardrobe panels wrapped and taped before loading."),
 }
-def photo_grid(keys, city):
-    cap = (lambda t: t) if city else (lambda t: t.replace("Our crew", "Our Panchkula crew"))
+def photo_grid(keys, city, partner=False):
+    cap = (lambda t: t) if city else ((lambda t: t.replace("Our crew in the 1st VRL uniform.", "Our crew in the 1st VRL uniform (Panchkula).").replace("Cartons sealed with our own branded tape.", "Cartons sealed with our own branded tape (Panchkula jobs).").replace("The same team in the earlier VRL Packers and Movers uniform.", "Our Panchkula team in the earlier VRL Packers and Movers uniform.")) if partner else (lambda t: t.replace("Our crew", "Our Panchkula crew")))
     figs = "".join(f'<figure><img src="/assets/img/{k}.webp" alt="{PHOTO_META[k][2]}{', ' + city if city else ''}" width="{PHOTO_META[k][0]}" height="{PHOTO_META[k][1]}" loading="lazy"><figcaption>{cap(PHOTO_META[k][3])}</figcaption></figure>' for k in keys)
     return f'<div class="photo-grid">{figs}</div>'
 
@@ -526,15 +542,15 @@ def city_page(key, c):
   <div class="container">
     <h2>Our team at work</h2>
     <p>Real photos from our jobs, in the old VRL uniform and the new 1st VRL uniform. Estimates and invoices carry GSTIN {GSTIN}; bank and PSU transfers are handled through our IBA-approved partner (code {IBA}).</p>
-    {photo_grid(c['photos'], alt_city)}
+    {photo_grid(c['photos'], alt_city, team == 'partner')}
   </div>
 </section>
 
 <section class="section section--tint">
   <div class="container">
-    <h2>Other VRL Packers and Movers pages</h2>
+    <h2>VRL Packers and Movers near {n}</h2>
     <div class="city-links">
-{city_links(exclude='/'+slug)}
+{nearby_links(key)}
     </div>
   </div>
 </section>
