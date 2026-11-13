@@ -30,6 +30,9 @@ STYLE = STYLE.replace("</style>", """.photo-grid{display:grid;grid-template-colu
 .city-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
 .city-links a{background:#fff;border:1px solid #dde3ec;border-radius:999px;padding:9px 16px;color:#0e2a47;font-weight:600;text-decoration:none;font-size:14px}
 .city-links a:hover{border-color:#e8542f;color:#e8542f}
+.section--tint + .section--tint{border-top:1px solid #e4e8ef}
+ol.trust-row{list-style:none;padding:0;margin:20px 0 0}
+.trust-row li{background:#fff;border:1px solid #e4e8ef;border-radius:10px;padding:18px;text-align:center}
 @media(max-width:960px){.photo-grid{grid-template-columns:1fr 1fr}.area-list{columns:2}}
 @media(max-width:620px){.photo-grid{grid-template-columns:1fr}.area-list{columns:1}}
 @media(max-width:960px){.hero-copy{order:1}.hero-form{order:2}}
@@ -125,7 +128,7 @@ def hero(h1_html, para, page_id):
       <div class="conv-item"><span class="conv-num">2023</span><span class="conv-label">GST registered since April 2023, Panchkula</span></div>
       <div class="conv-item"><span class="conv-num">2000+</span><span class="conv-label">Moves done by our team and partner network</span></div>
       <div class="conv-item"><span class="conv-num">ISO</span><span class="conv-label">ISO 9001:2015 certified</span></div>
-      <div class="conv-item"><span class="conv-num">24 hr</span><span class="conv-label">Booking line, all seven days</span></div>
+      <div class="conv-item"><span class="conv-num">5.0</span><span class="conv-label">Google rating, 1200+ reviews on our Jammu and Shimla profiles</span></div>
     </div>
   </div>
 </section>
@@ -155,6 +158,20 @@ def trust_section(city=None):
       <div><strong>Bank and PSU moves</strong><span>Moves for bank and PSU transfers through our IBA-approved partner, code {IBA}.</span></div>
     </div>
     <p style="margin-top:22px">{how}</p>
+  </div>
+</section>
+"""
+
+PROCESS = """
+<section class="section section--tint">
+  <div class="container">
+    <h2>How your move works</h2>
+    <ol class="trust-row">
+      <li><strong>1. Call or send the form</strong><span>Tell us the date, the two addresses and roughly what is moving.</span></li>
+      <li><strong>2. Free survey</strong><span>At your place or on a video call, so the crew and vehicle are sized right.</span></li>
+      <li><strong>3. Written estimate</strong><span>Itemised, with GST shown. A small advance books the date.</span></li>
+      <li><strong>4. Pack, move, deliver</strong><span>We unload and set up at the new place; you pay the balance after delivery.</span></li>
+    </ol>
   </div>
 </section>
 """
@@ -327,6 +344,7 @@ def brand_page():
 </section>
 """
     body += trust_section()
+    body += PROCESS
     body += f"""
 <section class="section section--tint">
   <div class="container">
@@ -503,6 +521,7 @@ def city_page(key, c):
   </div>
 </section>
 
+{PROCESS}
 <section class="section">
   <div class="container">
     <h2>Our team at work</h2>

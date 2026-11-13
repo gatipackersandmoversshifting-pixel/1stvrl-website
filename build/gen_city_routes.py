@@ -184,6 +184,7 @@ def route_page(ck, c, r):
 </section>
 """
     out += G.trust_section(frm)
+    out += G.PROCESS
     others = [x for x in c["routes"] if x["key"] != r["key"]]
     links = "\n".join(f'      <a href="/packers-and-movers-{ck}-to-{x["key"]}">{e(frm)} to {e(x["to"])}</a>' for x in others)
     out += f"""
@@ -246,6 +247,7 @@ def city_page(ck, c):
 </section>
 """
     out += G.trust_section(n)
+    out += G.PROCESS
     out += G.faq_block(faqs)
     out += G.footer()
     return slug, out

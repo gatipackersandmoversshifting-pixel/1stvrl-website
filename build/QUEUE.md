@@ -22,6 +22,11 @@
 - [ ] Jammu and Shimla origin routes
 - [ ] Next 20 cities: Lucknow, Ahmedabad, Indore, Bhopal, Nagpur, Surat, Vadodara, Kanpur, Patna, Bhubaneswar, Kochi, Coimbatore, Visakhapatnam, Ghaziabad, Faridabad, Greater Noida, Ludhiana, Amritsar, Dehradun, Lucknow
 
+## Phase 3 — new page types (from competitor study 2026-11-13, see COMPETITORS.md)
+- [ ] Service-in-city: home shifting / office shifting / car transport / bike transport in Chandigarh, Panchkula, Mohali, Zirakpur
+- [ ] State hubs: Packers and Movers Punjab, Haryana, Himachal Pradesh
+- [ ] Guides: price list 2026, how to spot a fake VRL quote, transfer claim bill guide
+
 ## Weekly
 - [ ] Search Console: submit sitemap, request indexing for new URLs, note pages stuck on page 2 and improve them
 - [ ] Analytics: leads by page; report to Deepak
@@ -32,8 +37,8 @@
 - [ ] Tidy: Ambala page lists Zirakpur as a destination (not an office) — fine, recheck wording
 - [ ] Descriptions >160 on packers-and-movers-jammu/shimla/india.html; service page titles 77–88 chars; moving-cost-calculator title 72
 - [x] "Average callback time under 30 minutes" — confirmed true by Deepak (2026-11-11), keep
-- [ ] Delhi route pages near 0.63 duplicate — add more unique text (Delhi→Bengaluru vs Delhi→Chennai)
+- [ ] Delhi route pages near 0.63 duplicate (delhi-to-hyderabad vs delhi-to-kolkata 63.0%, delhi-to-mumbai vs delhi-to-pune 62.8%): add unique sentences BEFORE any new shared block — add more unique text (Delhi→Bengaluru vs Delhi→Chennai)
 - [x] Decided 2026-11-12 (Deepak delegated): Faridabad<->Noida/Gurugram local band; moves around one city up to ~30 km local band (Karnal, Hisar, Moga updated); Hyderabad-Kolkata 1,490 km = 500-1,500 band; Pathankot-Delhi padding removed. Rules in CLAUDE.md.
 - Route rule (Deepak): only famous, high-search routes.
 - [ ] Minor (checkers): Panchkula/Zirakpur/Chandigarh/Mohali hero intro should contain "VRL Packers and Movers <city>"; reverse route pages (X-to-hyderabad) should cross-link hyderabad-to-X; consider grouping the long VRL city-links block by region
-- [ ] Competitor review (build/COMPETITORS.md not created yet) — next Monday run
+- [x] Competitor review: ompackersindia.com done 2026-11-13 (build/COMPETITORS.md). Next Monday: agarwalpackers.com, porter.in, top 3 Google results

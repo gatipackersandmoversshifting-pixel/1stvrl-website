@@ -674,3 +674,5 @@ button:focus-visible,
   .related-list { grid-template-columns: 1fr; }
 }
 
+
+.section--tint + .section--tint{border-top:1px solid #e4e8ef}
