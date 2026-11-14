@@ -12,7 +12,7 @@
 - [x] VRL Packers and Movers Ropar, Morinda, Banur (own crew), Panipat, Sonipat, Hisar, Rohtak, Moga, Phagwara, Kapurthala, Mandi, Dharamshala — 2026-11-12
 - [x] VRL Packers and Movers Kurali, Sirhind, Nahan (own crew), Nangal, Anandpur Sahib, Jind, Kaithal, Bhiwani, Sirsa, Ferozepur, Barnala, Sangrur, Kangra, Hamirpur, Una, Bilaspur (HP), Paonta Sahib, Haridwar, Rishikesh — 2026-11-13
 - [x] VRL Packers and Movers Khanna (own Panchkula crew, Deepak confirmed) — 2026-11-13
-- [x] VRL Packers and Movers Mandi Gobindgarh, Samrala (own Panchkula crew, ~80 km rule), Fatehabad, Narnaul, Rewari, Palwal, Jhajjar, Kullu, Manali, Palampur, Chamba, Sundernagar, Roorkee, Saharanpur, Muzaffarnagar, Meerut, Batala, Gurdaspur, Tarn Taran, Muktsar — 2026-11-14
+- [x] VRL Packers and Movers Mandi Gobindgarh, Samrala (own Panchkula crew, Deepak confirmed 2026-11-14), Fatehabad, Narnaul, Rewari, Palwal, Jhajjar, Kullu, Manali, Palampur, Chamba, Sundernagar, Roorkee, Saharanpur, Muzaffarnagar, Meerut, Batala, Gurdaspur, Tarn Taran, Muktsar — 2026-11-14
 - [x] (2026-11-14) VRL bottom link block now always includes Panchkula/Chandigarh/Mohali/Zirakpur/Jammu/Shimla + same-state pages; heading "More VRL Packers and Movers pages in <state> and the Tricity" (old "near <city>" listed far towns)
 - [ ] Next VRL cities: Bahadurgarh, Hansi, Tohana, Narwana, Dabwali, Malout, Abohar, Fazilka, Zira, Nawanshahr, Garhshankar, Mukerian, Dasuya, Dalhousie, Nurpur, Rampur Bushahr, Rudrapur, Haldwani, Kashipur, Ambala Cantt
 - [ ] Minor (checkers 2026-11-14): Delhi page link-block heading wording; Batala Gurdaspur FAQ wording polish
