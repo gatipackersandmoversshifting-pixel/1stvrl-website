@@ -216,6 +216,8 @@ def nearby_links(key, n=10):
         after = [k for k in same if keys.index(k) > i]; before = [k for k in same if keys.index(k) < i]
         same = after + before
     pick = same[:n]
+    core = [k for k in ("panchkula","chandigarh","mohali","zirakpur","jammu","shimla") if k != key and k in CITIES and k not in pick]
+    pick = pick + core
     if len(pick) < 6:
         pick += [k for k in keys if k != key and k not in pick][:6 - len(pick)]
     links = [('/vrl-packers-and-movers','VRL Packers and Movers (all cities)')] + [(f'/vrl-packers-and-movers-{k}', f'VRL Packers and Movers {CITIES[k]["name"]}') for k in pick] + [('/packers-and-movers-shimla.html','Packers and Movers Shimla'),('/packers-and-movers-jammu.html','Packers and Movers Jammu')]
@@ -548,7 +550,7 @@ def city_page(key, c):
 
 <section class="section section--tint">
   <div class="container">
-    <h2>VRL Packers and Movers near {n}</h2>
+    <h2>More VRL Packers and Movers pages in {c.get("state", "the region") + " and the Tricity" if c.get("state") not in (n, "Jammu and Kashmir") else ("Jammu, Himachal and the Tricity" if c.get("state") == "Jammu and Kashmir" else "and around the Tricity")}</h2>
     <div class="city-links">
 {nearby_links(key)}
     </div>
