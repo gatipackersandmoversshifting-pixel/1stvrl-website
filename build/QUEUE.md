@@ -16,7 +16,7 @@
 - [x] (2026-11-14) VRL bottom link block now always includes Panchkula/Chandigarh/Mohali/Zirakpur/Jammu/Shimla + same-state pages; heading "More VRL Packers and Movers pages in <state> and the Tricity" (old "near <city>" listed far towns)
 - [x] VRL Packers and Movers Bahadurgarh, Hansi, Tohana, Narwana, Mandi Dabwali, Malout, Abohar, Fazilka, Zira, Nawanshahr, Garhshankar, Mukerian, Dasuya, Dalhousie, Nurpur, Rampur Bushahr, Rudrapur, Haldwani, Kashipur (partner teams), Ambala Cantt (own Panchkula crew, part of Ambala) — 2026-11-15
 - [ ] Ask Deepak (2026-11-15, left off pages): Bahadurgarh <-> Delhi band (local NCR or up to 500 km?); same-district pairs ~20-30 km (Malout<->Muktsar, Mukerian<->Dasuya/Talwara, Haldwani<->Bhimtal, Dabwali<->Kilianwali/Kalanwali) local or up to 500 km?
-- [ ] Next VRL cities: Faridkot, Kotkapura, Mansa, Malerkotla, Nabha, Samana, Sunam, Jagraon, Nakodar, Balachaur, Jagadhri, Gohana, Sohna, Hodal, Parwanoo, Kasauli, Theog, Nainital, Mussoorie, Kathua, Udhampur, Samba (Parwanoo/Kasauli are ~30-50 km from Panchkula: own crew? ask Deepak before writing them as own)
+- [ ] Next VRL cities: Faridkot, Kotkapura, Mansa, Malerkotla, Nabha, Samana, Sunam, Jagraon, Nakodar, Balachaur, Jagadhri, Gohana, Sohna, Hodal, Parwanoo, Kasauli, Theog, Nainital, Mussoorie, Kathua, Udhampur, Samba (Parwanoo, Kasauli = own Panchkula crew, team="own", no office there — Deepak confirmed 2026-11-15)
 - [ ] Minor (checkers 2026-11-14): Delhi page link-block heading wording; Batala Gurdaspur FAQ wording polish
 
 ## Phase 2 — "Packers and movers <city>" + routes (6 routes each)
