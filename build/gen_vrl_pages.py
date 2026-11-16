@@ -470,6 +470,13 @@ PHOTO_META = {
  "vrl-crew-stretch-wrap": ("532","1008","1st VRL packer stretch wrapping furniture","Stretch wrap over every furniture piece."),
  "vrl-crew-carton-lift": ("892","774","Packed carton sealed with 1st VRL branded tape","Cartons sealed with our own branded tape."),
  "vrl-crew-wardrobe-taping": ("1200","581","1st VRL crew taping a wrapped wardrobe panel","Wardrobe panels wrapped and taped before loading."),
+ # more real crew photos already on the site (home/about pages), added 2026-11-16 per Deepak ("photos website se lelo")
+ "hero-headboard": ("880","660","Bed headboard packed with corrugated sheet and stretch film by 1st VRL packers","Bed headboards get corrugated sheet and stretch film."),
+ "gal-bed-panel": ("560","420","Bed panel wrapped in corrugated sheet and taped by 1st VRL packers","Bed panels padded and taped edge to edge."),
+ "gal-carton-overhead": ("560","747","1st VRL packer carrying a sealed carton marked this side up","Cartons marked with arrows and carried upright."),
+ "gal-carton-shoulder": ("560","747","1st VRL packer carrying a labelled carton on his shoulder","Every carton labelled before it leaves the room."),
+ "gal-stretch-wrap": ("560","747","1st VRL packer stretch wrapping a packed furniture piece","A second layer of stretch film over the padding."),
+ "team-group": ("880","1173","1st VRL Packers and Movers crew in uniform beside packed goods","Our uniformed crew after a full house packing job."),
 }
 def photo_grid(keys, city, partner=False):
     cap = (lambda t: t) if city else ((lambda t: t.replace("Our crew in the 1st VRL uniform.", "Our crew in the 1st VRL uniform (Panchkula).").replace("Cartons sealed with our own branded tape.", "Cartons sealed with our own branded tape (Panchkula jobs).").replace("The same team in the earlier VRL Packers and Movers uniform.", "Our Panchkula team in the earlier VRL Packers and Movers uniform.")) if partner else (lambda t: t.replace("Our crew", "Our Panchkula crew")))

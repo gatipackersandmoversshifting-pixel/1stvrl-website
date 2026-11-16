@@ -21,7 +21,9 @@
 - [ ] Next VRL cities: Raikot, Doraha, Dhuri, Ahmedgarh, Jaitu, Budhlada, Rampura Phul, Talwandi Sabo, Pehowa, Shahabad, Ladwa, Safidon, Ellenabad, Dharuhera, Bawal, Nuh, Bhimtal, Almora, Ranikhet, Katra, Reasi, Rajouri (all partner teams unless Deepak says otherwise)
 - [ ] Minor (checkers 2026-11-14): Delhi page link-block heading wording; Batala Gurdaspur FAQ wording polish
 
-- [ ] Waiting for Deepak's real packing/crew photos (asked 2026-11-16); add them to pages when they arrive
+- [x] (2026-11-16) Deepak: "photos website se lelo" — 6 more real site photos added to PHOTO_META (11 total) for new pages; old pages unchanged
+- [ ] Ask Deepak: are assets/img/sp/* (team with branded truck, office packing, loading) real photos or AI-made? Use only if real
+- [ ] More real photos from Deepak welcome (city jobs)
 
 ## Phase 2 — "Packers and movers <city>" + routes (6 routes each)
 - [x] Mumbai (+ Delhi, Pune, Bengaluru, Hyderabad, Chennai, Kolkata) — 2026-11-11
