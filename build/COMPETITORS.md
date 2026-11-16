@@ -29,3 +29,26 @@ Pages studied: home, /packers-movers-from-delhi-to-chandigarh, /chandigarh-packe
 - [ ] Guides (resource pages, no fake dates/authors): "Packers and movers price list 2026" (rate card explained), "How to spot a fake VRL packers quote" (scam check), "Transfer claim bill for bank/PSU/government staff".
 - [ ] More route links per city page ("Routes from <city>" block), famous routes only.
 - [ ] Quote form: consider "moving date" and "within city / other state" fields (needs a quote-send.php check first).
+
+## 2026-11-16 — Monday review: agarwalpackers.com, agarwalpackers.in, porter.in, Google top results
+Pages studied: agarwalpackers.com/packersmoverschandigarh.html, agarwalpackers.in/branch/panchkula.html, porter.in/packers-and-movers/chandanagar; Google results for "vrl packers and movers" and "packers and movers panchkula".
+
+### What they do better
+- **"Verify it's really us" block** (agarwalpackers.com Chandigarh): official site, one care number, warning about third-party listings and payment to unknown accounts. Matters for us: Google results for "vrl packers and movers" are mostly directories/other firms using VRL (IndiaMART, Clutch, thepackersmovers, blogspot), so searchers need a clear way to know the real one.
+- **Price-intent content.** People ask "what is VRL packers and movers price" (NoBroker forum ranks for it). Nobody answers it with a real chart — we can.
+- **Cost-factor list** (floor/lift, parking distance, packing grade, vehicle size, add-ons) explained next to the quote.
+- **Porter:** booking form high on the page with from/to/date, a "starting from" price in the hero, value-added services (carpenter, electrician, appliance install), 8-step booking guide.
+- **Coverage link blocks** by locality (sector pages) and ~80 city pages.
+
+### Where we are already better
+- Real rate charts on every page (Agarwal shows none; Porter only "from Rs 749"). Real sectors/localities; agarwalpackers.in Panchkula page names no sectors and has copied text mentioning Tirupur, and shows a Zirakpur branch.
+- One number, GSTIN shown, honest own-crew vs partner wording.
+
+### Not to copy
+- 1984/1987 founding years, 140+ branches, records/awards, trademarks, "100% damage-free", "10 lakh+ customers", "best" in titles. Their text.
+
+### Ideas queued (next runs, through the 2-check workflow)
+- [ ] "How to check you are talking to the real 1st VRL" box on brand + VRL city pages (one phone, GSTIN 06AEYPV2101B1ZM, @1stvrlpackersandmovers.com email, GST invoice, never pay before a written estimate). Check duplicate share stays <65% after adding.
+- [ ] Page "VRL Packers and Movers price list / charges 2026" (rate card explained by band, examples, cost factors) — targets the price-intent search.
+- [ ] Cost-factor list (floor/lift, parking, packing grade) near the rate chart.
+- [ ] Value-added services (carpenter, electrician, AC/appliance install) — only if Deepak confirms we offer them (asked 2026-11-16).
