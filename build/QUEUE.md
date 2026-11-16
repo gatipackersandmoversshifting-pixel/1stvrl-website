@@ -22,7 +22,7 @@
 - [ ] Minor (checkers 2026-11-14): Delhi page link-block heading wording; Batala Gurdaspur FAQ wording polish
 
 - [x] (2026-11-16) Deepak: "photos website se lelo" — 6 more real site photos added to PHOTO_META (11 total) for new pages; old pages unchanged
-- [ ] Ask Deepak: are assets/img/sp/* (team with branded truck, office packing, loading) real photos or AI-made? Use only if real
+- [x] (2026-11-16) assets/img/sp/* confirmed real by Deepak — added to PHOTO_META (15 photos total)
 - [ ] More real photos from Deepak welcome (city jobs)
 
 ## Phase 2 — "Packers and movers <city>" + routes (6 routes each)
