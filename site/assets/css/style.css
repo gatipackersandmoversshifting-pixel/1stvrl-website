@@ -676,3 +676,9 @@ button:focus-visible,
 
 
 .section--tint + .section--tint{border-top:1px solid #e4e8ef}
+
+/* real crew photos (2026-11-17): keep faces in frame */
+.gallery img[src*="crew-paper-wrap-taping"]{object-position:50% 8%}
+.gallery img[src*="crew-carton-taping"]{object-position:50% 25%}
+.gallery img[src*="crew-carton-packing-home"]{object-position:20% 50%}
+.hero__collage-row img[src*="crew-carton-shoulder"]{object-position:70% 40%}

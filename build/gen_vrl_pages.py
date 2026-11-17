@@ -23,8 +23,13 @@ OFFICES = {
 shimla = (SITE / "packers-and-movers-shimla.html").read_text(encoding="utf-8")
 STYLE = re.search(r"<style>.*?</style>", shimla, re.S).group(0)
 STYLE = STYLE.replace("</style>", """.table-wrap{overflow-x:auto}
-.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.photo-grid{align-items:start}
+.photo-grid.photo-grid--3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:960px){.photo-grid.photo-grid--3{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.photo-grid.photo-grid--3{grid-template-columns:1fr}}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px}
 .photo-grid img{width:100%;height:260px;object-fit:cover;border-radius:12px;display:block}
+.photo-grid img[src*="crew-paper-wrap-taping"],.photo-grid img[src*="crew-carton-taping"],.photo-grid img[src*="crew-carton-shoulder"],.photo-grid img[src*="crew-wrapped-furniture"]{height:auto;aspect-ratio:4/5;object-position:50% 50%}
 .photo-grid figure{margin:0}.photo-grid figcaption{font-size:13px;color:#5b6676;margin-top:6px;line-height:1.5}
 .note{background:#fff7e6;border:1px solid #f3d9a4;border-radius:10px;padding:16px 18px;color:#5a4a26;font-size:14.5px;line-height:1.65}
 .area-list{columns:3;gap:24px;padding-left:18px;margin:12px 0;color:#3c4757;line-height:1.9}
@@ -73,7 +78,7 @@ def head(title, desc, slug, schema_list):
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{BASE}/assets/img/vrl-team-uniform.webp">
+<meta property="og:image" content="{BASE}/assets/img/sp/sp-team-truck-1200.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(desc)}">
@@ -135,13 +140,7 @@ def hero(h1_html, para, page_id):
 </section>
 """
 
-PHOTOS = """<div class="photo-grid">
-      <figure><img src="/assets/img/vrl-team-uniform.webp" alt="1st VRL Packers and Movers crew in yellow uniform" width="794" height="836" loading="lazy"><figcaption>Our crew in the 1st VRL uniform.</figcaption></figure>
-      <figure><img src="/assets/img/vrl-old-uniform-crew.webp" alt="VRL Packers and Movers crew in the earlier VRL uniform at a home shifting in the Tricity" width="1200" height="860" loading="lazy"><figcaption>The same team in the earlier VRL Packers and Movers uniform.</figcaption></figure>
-      <figure><img src="/assets/img/vrl-crew-stretch-wrap.webp" alt="1st VRL packer stretch wrapping furniture" width="532" height="1008" loading="lazy"><figcaption>Stretch wrap over every furniture piece.</figcaption></figure>
-      <figure><img src="/assets/img/vrl-crew-carton-lift.webp" alt="Packed carton sealed with 1st VRL branded tape" width="892" height="774" loading="lazy"><figcaption>Cartons sealed with our own branded tape.</figcaption></figure>
-      <figure><img src="/assets/img/vrl-crew-wardrobe-taping.webp" alt="1st VRL crew taping a wrapped wardrobe panel" width="1200" height="581" loading="lazy"><figcaption>Wardrobe panels wrapped and taped before loading.</figcaption></figure>
-    </div>"""
+BRAND_PHOTOS = ["sp/sp-team-truck-1200", "crew/crew-mattress-corrugated", "sp/sp-loading-720", "crew/crew-carton-taping", "sp/sp-home-packing-720", "crew/crew-carton-shoulder"]
 
 def trust_section(city=None):
     if city:
@@ -195,7 +194,7 @@ def business_schema(slug, area=None):
     s = {"@context":"https://schema.org","@type":"MovingCompany","@id":f"{BASE}/#business",
          "name":"1st VRL Packers and Movers",
          "alternateName":["VRL Packers and Movers","VRL Packers Movers","1st VRL Packers & Movers"],
-         "url":f"{BASE}/","logo":f"{BASE}/assets/img/vrl-logo.webp","image":f"{BASE}/assets/img/vrl-team-uniform.webp",
+         "url":f"{BASE}/","logo":f"{BASE}/assets/img/vrl-logo.webp","image":f"{BASE}/assets/img/sp/sp-team-truck-1200.webp",
          "telephone":PHONE,"email":"support@1stvrlpackersandmovers.com","taxID":GSTIN,"foundingDate":"2023-04-27",
          "priceRange":"Rs","currenciesAccepted":"INR",
          "address":{"@type":"PostalAddress","streetAddress":"#705, Sector-7","addressLocality":"Panchkula","addressRegion":"Haryana","postalCode":"134109","addressCountry":"IN"},
@@ -345,9 +344,9 @@ def brand_page():
 
 <section class="section section--tint">
   <div class="container">
-    <h2>Our team, then and now</h2>
-    <p>Real photos from our jobs. The older uniform says VRL Packers and Movers, the new one says 1st VRL. The cartons are sealed with our own printed tape.</p>
-    {PHOTOS}
+    <h2>Our team at work</h2>
+    <p>Real photos from our jobs: our crew in the 1st VRL uniform, with cartons sealed with our own printed tape.</p>
+    {photo_grid(BRAND_PHOTOS, None, True).replace('class="photo-grid"', 'class="photo-grid photo-grid--3"', 1)}
   </div>
 </section>
 
@@ -394,7 +393,7 @@ CITIES = {
    areas=["All Panchkula sectors","MDC Sector 4, 5 and 6","Industrial Area Phase 1 and 2","Pinjore","Kalka","Raipur Rani","Barwala","Morni Road","Amravati Enclave","Surajpur","Majri Chowk"],
    routes=["Panchkula to Delhi","Panchkula to Gurugram","Panchkula to Noida","Panchkula to Jaipur","Panchkula to Bengaluru","Panchkula to Pune"],
    example="A 3 BHK kothi in Sector 9 moving to a flat in Sector 20 is a local move of roughly Rs 12,000 to 21,000 plus GST, depending on the furniture count and how many floors the goods go up at the new place.",
-   photos=["vrl-team-uniform","vrl-old-uniform-crew","vrl-crew-wardrobe-taping"],
+   photos=["crew/crew-wrapped-furniture", "crew/crew-paper-wrap-taping", "crew/crew-carton-packing-home", "sp/sp-office-720"],
    faqs=[("Is your office really in Panchkula?","Yes. Our office is at #705, Sector-7, Panchkula, Haryana 134109, and the same address is on our GST registration. You are welcome to visit before you book."),
          ("Do you shift kothis and MDC houses with a lot of furniture?","Yes. For kothis we send a larger crew, dismantle beds and wardrobes on the spot and wrap every panel before loading. The survey tells us how many people and which vehicle the job needs."),
          ("Do you cover Pinjore, Kalka and Barwala?","Yes. Pinjore, Kalka, Barwala, Raipur Rani and the Morni Road side are covered by the same Panchkula team, with the same written estimate."),
@@ -411,7 +410,7 @@ CITIES = {
    areas=["VIP Road","Patiala Road","Ambala Highway","Dhakoli","Baltana","Peer Muchalla","Bhabat","Lohgarh","Gazipur","Singhpura","Kishanpura","Nabha Sahib","Highland Marg"],
    routes=["Zirakpur to Delhi","Zirakpur to Gurugram","Zirakpur to Jaipur","Zirakpur to Bengaluru","Zirakpur to Hyderabad","Zirakpur to Mumbai"],
    example="A 2 BHK flat on VIP Road moving to a society in Mohali is a local move of roughly Rs 8,000 to 15,000 plus GST. A society shifting deposit, if your society asks for one, is refundable and paid to the society, not to us.",
-   photos=["vrl-crew-stretch-wrap","vrl-crew-carton-lift","vrl-old-uniform-crew"],
+   photos=["sp/sp-home-packing-720", "crew/crew-paper-wrap-taping", "sp/sp-loading-720"],
    faqs=[("My society asks for a shifting deposit. What is it?","Many Zirakpur societies take a refundable deposit before a move to cover any damage to lifts or common areas. It is paid to the society, not to us, and is returned after the move. We help you book the lift slot and the gate pass."),
          ("What time is best to load in Zirakpur?","Early morning or after the evening rush. Traffic on the flyover and the Ambala highway can hold a truck for an hour at peak times, so we schedule the truck to reach your gate before it builds up."),
          ("Can my move be finished in one day in Zirakpur?","Most 1 and 2 BHK flats are packed, moved and set up in one day when the booking is confirmed a day earlier and the lift slot is fixed. A 3 BHK or a move with a short lift window may need two days."),
@@ -428,7 +427,7 @@ CITIES = {
    areas=["Sector 1 to Sector 56","Manimajra","Modern Housing Complex","IT Park","Industrial Area Phase 1 and 2","Mauli Jagran","Daria","Dhanas","Kaimbwala","Hallomajra","Behlana","Maloya"],
    routes=["Chandigarh to Delhi","Chandigarh to Gurugram","Chandigarh to Lucknow","Chandigarh to Jaipur","Chandigarh to Bengaluru","Chandigarh to Kolkata"],
    example="A transferred employee moving a 2 BHK from a government house in Chandigarh to Delhi is an intercity move of roughly Rs 13,000 to 24,000 plus GST, with an itemised GST bill for the transfer claim.",
-   photos=["vrl-team-uniform","vrl-crew-carton-lift","vrl-crew-wardrobe-taping"],
+   photos=["crew/crew-mattress-corrugated", "crew/crew-carton-shoulder", "sp/sp-office-720", "sp/sp-loading-720"],
    faqs=[("I am a bank or PSU employee on transfer. Can I get an IBA bill?","Yes. For bank and PSU transfers we arrange the move through our IBA-approved partner (code MUK-2068), so the bill and documents match what your transfer claim needs. Tell us at the time of booking."),
          ("Do you shift government houses that must be vacated by a date?","Yes. Tell us the date by which the house must be handed over and we plan the packing a day or two earlier, so the house is empty and clean in time."),
          ("Do you handle office shifting in the IT Park and Industrial Area?","Yes. Office moves are planned after working hours or over a weekend, with systems, files and furniture labelled desk by desk so work can restart the next day."),
@@ -445,7 +444,7 @@ CITIES = {
    areas=["Phase 1 to Phase 11","Sector 62 to Sector 91","Airport Road","Aerocity","IT City","Industrial Area","Kharar","Sunny Enclave","New Chandigarh","Landran","Banur","Sohana"],
    routes=["Mohali to Delhi","Mohali to Gurugram","Mohali to Noida","Mohali to Bengaluru","Mohali to Pune","Mohali to Hyderabad"],
    example="A 2 BHK flat on Airport Road moving to Bengaluru is a long-distance move of roughly Rs 27,000 to 47,000 plus GST, with the car or bike quoted separately if it travels too.",
-   photos=["vrl-crew-stretch-wrap","vrl-team-uniform","vrl-old-uniform-crew"],
+   photos=["crew/crew-paper-wrap-taping", "crew/crew-carton-taping", "sp/sp-loading-720"],
    faqs=[("I have joined a new job and need to move within a week. Is that possible?","Usually yes. A video survey can be done the same day, and most local Mohali moves can be scheduled within two to four days of booking. Intercity moves need a little more time to fix the vehicle."),
          ("Can you move my car or bike along with the household goods?","Yes. Cars go on a separate carrier and bikes are cradle-packed. Each is quoted as its own line on the estimate so you can see exactly what it costs."),
          ("Do you cover Kharar and New Chandigarh?","Yes. Kharar, Sunny Enclave, New Chandigarh, Landran and Banur are covered by the same team with the same written estimate."),
@@ -466,23 +465,17 @@ except ImportError:
     pass
 
 PHOTO_META = {
- "vrl-team-uniform": ("794","836","1st VRL Packers and Movers crew in yellow uniform","Our crew in the 1st VRL uniform."),
- "vrl-old-uniform-crew": ("1200","860","VRL Packers and Movers crew in the earlier VRL uniform at a moving job","The same team in the earlier VRL Packers and Movers uniform."),
- "vrl-crew-stretch-wrap": ("532","1008","1st VRL packer stretch wrapping furniture","Stretch wrap over every furniture piece."),
- "vrl-crew-carton-lift": ("892","774","Packed carton sealed with 1st VRL branded tape","Cartons sealed with our own branded tape."),
- "vrl-crew-wardrobe-taping": ("1200","581","1st VRL crew taping a wrapped wardrobe panel","Wardrobe panels wrapped and taped before loading."),
- # more real crew photos already on the site (home/about pages), added 2026-11-16 per Deepak ("photos website se lelo")
- "hero-headboard": ("880","660","Bed headboard packed with corrugated sheet and stretch film by 1st VRL packers","Bed headboards get corrugated sheet and stretch film."),
- "gal-bed-panel": ("560","420","Bed panel wrapped in corrugated sheet and taped by 1st VRL packers","Bed panels padded and taped edge to edge."),
- "gal-carton-overhead": ("560","747","1st VRL packer carrying a sealed carton marked this side up","Cartons marked with arrows and carried upright."),
- "gal-carton-shoulder": ("560","747","1st VRL packer carrying a labelled carton on his shoulder","Every carton labelled before it leaves the room."),
- "gal-stretch-wrap": ("560","747","1st VRL packer stretch wrapping a packed furniture piece","A second layer of stretch film over the padding."),
- "team-group": ("880","1173","1st VRL Packers and Movers crew in uniform beside packed goods","Our uniformed crew after a full house packing job."),
- # assets/img/sp/* confirmed real by Deepak 2026-11-16 ("asli photos hain")
+ # Deepak 2026-11-17: "har page pe ye photos update kr do, purani photos remove" — the only crew photos used on the site (10, all sent by Deepak)
  "sp/sp-team-truck-1200": ("1200","900","1st VRL Packers and Movers crew beside a 1st VRL branded truck","Our crew with a 1st VRL truck."),
- "sp/sp-home-packing-720": ("720","540","1st VRL packers stretch wrapping a dining table before loading","Dining table wrapped at the house before loading."),
- "sp/sp-loading-720": ("720","540","1st VRL crew loading a packed carton into the truck","Loading packed goods into the truck."),
+ "sp/sp-loading-720": ("720","540","1st VRL crew loading a stretch-wrapped furniture piece into the truck","Wrapped furniture lifted into the truck by hand."),
+ "sp/sp-home-packing-720": ("720","540","1st VRL packers stretch wrapping a dining table with edge guards","Dining table wrapped with edge guards."),
  "sp/sp-office-720": ("720","540","1st VRL crew packing an office with cartons on a trolley","Office shifting: systems and files packed desk by desk."),
+ "crew/crew-mattress-corrugated": ("1200","900","1st VRL packers covering a mattress with corrugated sheet","Mattress covered in corrugated sheet."),
+ "crew/crew-paper-wrap-taping": ("720","960","1st VRL packer sealing a paper-wrapped furniture piece with branded tape","Paper wrap sealed with our branded tape."),
+ "crew/crew-carton-packing-home": ("960","714","1st VRL crew packing cartons at a house with bubble wrap ready","Cartons packed room by room."),
+ "crew/crew-carton-shoulder": ("720","960","1st VRL packer carrying a sealed carton on his shoulder","Sealed cartons carried out by hand."),
+ "crew/crew-wrapped-furniture": ("720","960","1st VRL crew member with a numbered, stretch-wrapped furniture piece","Every item numbered for the inventory list."),
+ "crew/crew-carton-taping": ("720","960","1st VRL packer sealing a carton with 1st VRL tape","Cartons sealed with our own branded tape."),
 }
 def alt_tail(page_city, partner):
     # Deepak 2026-11-17 ("ha kr do"): alt text names the city; on partner-team towns it is our packing standard, not a photo taken there
@@ -490,7 +483,7 @@ def alt_tail(page_city, partner):
     return f" (our packing standard for home shifting in {page_city})" if partner else f", home shifting in {page_city}"
 
 def photo_grid(keys, city, partner=False, page_city=None):
-    cap = (lambda t: t) if city else ((lambda t: t.replace("Our crew in the 1st VRL uniform.", "Our crew in the 1st VRL uniform (Panchkula).").replace("Cartons sealed with our own branded tape.", "Cartons sealed with our own branded tape (Panchkula jobs).").replace("The same team in the earlier VRL Packers and Movers uniform.", "Our Panchkula team in the earlier VRL Packers and Movers uniform.")) if partner else (lambda t: t.replace("Our crew", "Our Panchkula crew")))
+    cap = lambda t: t
     figs = "".join(f'<figure><img src="/assets/img/{k}.webp" alt="{PHOTO_META[k][2]}{(', ' + city) if city and not page_city else ''}{alt_tail(page_city, partner)}" width="{PHOTO_META[k][0]}" height="{PHOTO_META[k][1]}" loading="lazy"><figcaption>{cap(PHOTO_META[k][3])}</figcaption></figure>' for k in keys)
     return f'<div class="photo-grid">{figs}</div>'
 
@@ -561,7 +554,7 @@ def city_page(key, c):
 <section class="section">
   <div class="container">
     <h2>Our team at work</h2>
-    <p>Real photos from our jobs, in the old VRL uniform and the new 1st VRL uniform. Estimates and invoices carry GSTIN {GSTIN}; bank and PSU transfers are handled through our IBA-approved partner (code {IBA}).</p>
+    <p>Real photos of our crew at work in the 1st VRL uniform. Estimates and invoices carry GSTIN {GSTIN}; bank and PSU transfers are handled through our IBA-approved partner (code {IBA}).</p>
     {photo_grid(c['photos'], alt_city, team == 'partner', n)}
   </div>
 </section>

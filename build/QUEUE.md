@@ -25,7 +25,9 @@
 
 - [x] (2026-11-16) Deepak: "photos website se lelo" — 6 more real site photos added to PHOTO_META (11 total) for new pages; old pages unchanged
 - [x] (2026-11-16) assets/img/sp/* confirmed real by Deepak — added to PHOTO_META (15 photos total)
+- [x] (2026-11-17) Deepak sent 10 crew photos: all old photos replaced on every page (VRL pages, home, about, quote page, Shimla/Jammu/India banners, og:image); each VRL page has its own 3-4 photo set; 2 checks passed
 - [ ] More real photos from Deepak welcome (city jobs)
+- [ ] Minor (checkers 2026-11-17): og:image:width/height/alt + twitter:image missing on generated pages (add in head()); Shimla trust strip shows Google 4.9/5 but CLAUDE.md says 5.0 (ask/fix); contact.html 15px overflow at 390px; Shimla/Jammu/India rate table 12px overflow; review badge PNG width/height ratio; free-moving-quote has no og:image/JSON-LD
 
 ## Phase 2 — "Packers and movers <city>" + routes (6 routes each)
 - [x] Mumbai (+ Delhi, Pune, Bengaluru, Hyderabad, Chennai, Kolkata) — 2026-11-11
