@@ -22,7 +22,8 @@ OFFICES = {
 
 shimla = (SITE / "packers-and-movers-shimla.html").read_text(encoding="utf-8")
 STYLE = re.search(r"<style>.*?</style>", shimla, re.S).group(0)
-STYLE = STYLE.replace("</style>", """.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+STYLE = STYLE.replace("</style>", """.table-wrap{overflow-x:auto}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
 .photo-grid img{width:100%;height:260px;object-fit:cover;border-radius:12px;display:block}
 .photo-grid figure{margin:0}.photo-grid figcaption{font-size:13px;color:#5b6676;margin-top:6px;line-height:1.5}
 .note{background:#fff7e6;border:1px solid #f3d9a4;border-radius:10px;padding:16px 18px;color:#5a4a26;font-size:14.5px;line-height:1.65}
@@ -466,7 +467,7 @@ except ImportError:
 
 PHOTO_META = {
  "vrl-team-uniform": ("794","836","1st VRL Packers and Movers crew in yellow uniform","Our crew in the 1st VRL uniform."),
- "vrl-old-uniform-crew": ("1200","860","VRL Packers and Movers crew in the earlier VRL uniform at a home shifting","The same team in the earlier VRL Packers and Movers uniform."),
+ "vrl-old-uniform-crew": ("1200","860","VRL Packers and Movers crew in the earlier VRL uniform at a moving job","The same team in the earlier VRL Packers and Movers uniform."),
  "vrl-crew-stretch-wrap": ("532","1008","1st VRL packer stretch wrapping furniture","Stretch wrap over every furniture piece."),
  "vrl-crew-carton-lift": ("892","774","Packed carton sealed with 1st VRL branded tape","Cartons sealed with our own branded tape."),
  "vrl-crew-wardrobe-taping": ("1200","581","1st VRL crew taping a wrapped wardrobe panel","Wardrobe panels wrapped and taped before loading."),
@@ -479,13 +480,18 @@ PHOTO_META = {
  "team-group": ("880","1173","1st VRL Packers and Movers crew in uniform beside packed goods","Our uniformed crew after a full house packing job."),
  # assets/img/sp/* confirmed real by Deepak 2026-11-16 ("asli photos hain")
  "sp/sp-team-truck-1200": ("1200","900","1st VRL Packers and Movers crew beside a 1st VRL branded truck","Our crew with a 1st VRL truck."),
- "sp/sp-home-packing-720": ("720","540","1st VRL packers stretch wrapping a dining table during home shifting","Dining table wrapped at the house before loading."),
+ "sp/sp-home-packing-720": ("720","540","1st VRL packers stretch wrapping a dining table before loading","Dining table wrapped at the house before loading."),
  "sp/sp-loading-720": ("720","540","1st VRL crew loading a packed carton into the truck","Loading packed goods into the truck."),
  "sp/sp-office-720": ("720","540","1st VRL crew packing an office with cartons on a trolley","Office shifting: systems and files packed desk by desk."),
 }
-def photo_grid(keys, city, partner=False):
+def alt_tail(page_city, partner):
+    # Deepak 2026-11-17 ("ha kr do"): alt text names the city; on partner-team towns it is our packing standard, not a photo taken there
+    if not page_city: return ""
+    return f" (our packing standard for home shifting in {page_city})" if partner else f", home shifting in {page_city}"
+
+def photo_grid(keys, city, partner=False, page_city=None):
     cap = (lambda t: t) if city else ((lambda t: t.replace("Our crew in the 1st VRL uniform.", "Our crew in the 1st VRL uniform (Panchkula).").replace("Cartons sealed with our own branded tape.", "Cartons sealed with our own branded tape (Panchkula jobs).").replace("The same team in the earlier VRL Packers and Movers uniform.", "Our Panchkula team in the earlier VRL Packers and Movers uniform.")) if partner else (lambda t: t.replace("Our crew", "Our Panchkula crew")))
-    figs = "".join(f'<figure><img src="/assets/img/{k}.webp" alt="{PHOTO_META[k][2]}{', ' + city if city else ''}" width="{PHOTO_META[k][0]}" height="{PHOTO_META[k][1]}" loading="lazy"><figcaption>{cap(PHOTO_META[k][3])}</figcaption></figure>' for k in keys)
+    figs = "".join(f'<figure><img src="/assets/img/{k}.webp" alt="{PHOTO_META[k][2]}{(', ' + city) if city and not page_city else ''}{alt_tail(page_city, partner)}" width="{PHOTO_META[k][0]}" height="{PHOTO_META[k][1]}" loading="lazy"><figcaption>{cap(PHOTO_META[k][3])}</figcaption></figure>' for k in keys)
     return f'<div class="photo-grid">{figs}</div>'
 
 def city_page(key, c):
@@ -556,7 +562,7 @@ def city_page(key, c):
   <div class="container">
     <h2>Our team at work</h2>
     <p>Real photos from our jobs, in the old VRL uniform and the new 1st VRL uniform. Estimates and invoices carry GSTIN {GSTIN}; bank and PSU transfers are handled through our IBA-approved partner (code {IBA}).</p>
-    {photo_grid(c['photos'], alt_city, team == 'partner')}
+    {photo_grid(c['photos'], alt_city, team == 'partner', n)}
   </div>
 </section>
 
