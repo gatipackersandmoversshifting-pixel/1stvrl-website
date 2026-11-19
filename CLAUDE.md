@@ -48,6 +48,7 @@ Bands by road km: up to 500 / 500–1,500 / 1,500+.
 - Office [local, ≤500, 500–1500, 1500+]: Small ≤10 WS 12–25k, 25–45k, 40–70k, 55–90k; Medium 10–30 WS 25–60k, 50k–1L, 80k–1.5L, 1.1–2L; Large 30–100 WS 60k–1.5L, 1.2–2.5L, survey, survey; 100+ survey. Add-ons: workstation 800–2,000, server rack 3–8k.
 
 ## Standing page rules
+- Lead tracking (Deepak, 2026-11-19): Har form wale page par `<script src="/ad-track.js"></script>` exactly ek baar </body> se pehle hona chahiye. Ise kabhi mat hatana. Checker har batch me ise check kare. (The generators' shared footer() adds it; after any build or static-page edit run `python3 build/add_ad_track.py site` and then `python3 build/add_ad_track.py site --check`, which must report 0 problems. `ad-track.js` is the live tracking file on the server: commit it to `site/ad-track.js` only as an exact byte-for-byte copy of the live file, never a stub or edited version, and never delete it.)
 - City page: one rate chart (house, all bands) + links to its route pages + unique local content + FAQs.
 - Route page: unique journey/destination content, 4 rate charts (house, car by model, bike by model, office), route calculator, unique FAQs.
 - Home page: one rate chart.

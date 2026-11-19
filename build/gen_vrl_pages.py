@@ -298,6 +298,7 @@ def footer():
   <a class="btn btn--primary" href="tel:{PHONE}">Call Now</a>
   <a class="btn btn--wa" href="https://wa.me/918264091243">WhatsApp</a>
 </div>
+<script src="/ad-track.js"></script>
 </body>
 </html>
 """

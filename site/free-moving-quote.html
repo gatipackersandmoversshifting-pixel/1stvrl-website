@@ -434,5 +434,6 @@ try{if(new URLSearchParams(location.search).get('err')==='1'){document.getElemen
 document.querySelectorAll('[data-conv]').forEach(function(a){var fm=a.getAttribute('data-conv')==='form';a.addEventListener('click',function(){try{gtag('event',fm?'form_start':a.getAttribute('data-conv')+'_click',{page:'free-moving-quote'});}catch(e){}},{once:fm});});
 })();
 </script>
+<script src="/ad-track.js"></script>
 </body>
 </html>
