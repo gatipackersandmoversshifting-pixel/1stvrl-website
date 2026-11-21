@@ -488,6 +488,49 @@ def photo_grid(keys, city, partner=False, page_city=None):
     figs = "".join(f'<figure><img src="/assets/img/{k}.webp" alt="{PHOTO_META[k][2]}{(', ' + city) if city and not page_city else ''}{alt_tail(page_city, partner)}" width="{PHOTO_META[k][0]}" height="{PHOTO_META[k][1]}" loading="lazy"><figcaption>{cap(PHOTO_META[k][3])}</figcaption></figure>' for k in keys)
     return f'<div class="photo-grid">{figs}</div>'
 
+def keyword_section(key, c, team, off):
+    """Deepak 2026-11-21: every page's content should carry VRL Packers and Movers <city>, packers and movers <city>,
+    area keywords, best packers and movers, car and bike shifting, with real photos inside the content.
+    Sentences rotate between variants by city key so the shared text stays well under the 65% duplicate limit."""
+    import hashlib
+    n = c["name"]
+    h = int(hashlib.md5(key.encode()).hexdigest(), 16)
+    v = lambda opts, salt: opts[(h >> (salt * 3)) % len(opts)]
+    ar = [a for a in c["areas"] if a.lower() != n.lower() and " and " not in a and not a.startswith("All ")][:6]
+    a1 = ", ".join(html.escape(a) for a in ar[:-1]) + (f" and {html.escape(ar[-1])}" if len(ar) > 1 else html.escape(ar[0]) if ar else "")
+    if team == "partner":
+        who = v([f"a verified partner team, coordinated from our Panchkula head office", f"a verified partner team, with the estimate and bill from our Panchkula head office", f"a verified partner team that follows our packing standard"], 1)
+    elif off == "panchkula":
+        who = v([f"our own crew from the Panchkula office", f"our own Panchkula crew", f"the same crew that works from our Sector 7, Panchkula office"], 1)
+    else:
+        who = v([f"our own {n} office team", f"the team from our own office in {n}", f"our {n} office crew"], 1)
+    h2 = v([f"Packers and movers {n}: house, car and bike shifting", f"VRL Packers and Movers {n} for homes, cars and bikes", f"Home, car and bike shifting with packers and movers in {n}"], 2)
+    p1 = v([
+        f"Whether you search for VRL Packers and Movers {n}, packers and movers {n} or movers near your own colony, the booking reaches the same 24-hour line. Homes in {a1} get the same written estimate, and the work is done by {who}.",
+        f"Most people find us by typing VRL Packers and Movers {n} or packers and movers {n}. One written estimate covers home shifting in {a1}, and the work is done by {who}.",
+        f"Families in {a1} usually look us up as VRL Packers and Movers {n} or as packers and movers {n}. Every one of these areas gets the same written quote and the same packing, carried out by {who}."], 3)
+    p2 = v([
+        "Car shifting is booked on the same estimate as the house. Up to 500 km a hatchback on a car carrier is roughly Rs 5,500 to 9,000 plus GST, a sedan roughly Rs 6,500 to 10,500 plus GST and an SUV or MUV roughly Rs 9,000 to 14,000 plus GST. Bike shifting up to 500 km is roughly Rs 2,500 to 4,000 plus GST for a scooter and Rs 3,000 to 4,500 plus GST for a bike up to 150cc.",
+        "Cars and bikes can travel on the same booking. For distances up to 500 km, bike shifting costs roughly Rs 3,000 to 4,500 plus GST for a motorcycle up to 150cc and Rs 4,000 to 6,000 plus GST for 150 to 350cc, while car shifting costs roughly Rs 5,500 to 9,000 plus GST for a hatchback and Rs 7,500 to 12,000 plus GST for a compact SUV.",
+        "If a vehicle is moving too, it gets its own line on the quote. A scooter going up to 500 km is roughly Rs 2,500 to 4,000 plus GST and a premium bike above 350cc roughly Rs 6,000 to 9,000 plus GST. For a car the same distance, a sedan is roughly Rs 6,500 to 10,500 plus GST and a luxury car in an enclosed carrier roughly Rs 18,000 to 30,000 plus GST."], 4)
+    p3 = v([
+        f"Looking for the best packers and movers in {n}? Judge any company, including us, on four plain checks: a written estimate with a GSTIN, an item list you sign at loading and at delivery, one named coordinator, and a phone number you can call back and verify.",
+        f"Choosing the best packers and movers {n} has to offer is easier with a short test: ask for the quote in writing with the GST number on it, ask who will be on the phone during transit, and ask for the inventory sheet before the truck leaves. A genuine mover agrees to all three.",
+        f"Everyone claims to be the best packers in {n}, so ask for proof instead: a GST invoice, a signed inventory list, photos of your car or bike at pickup, and a written figure before any money is paid. We give every one of these, in writing."], 5)
+    ph = c.get("photos", [])[:2]
+    grid = photo_grid(ph, n if off in ("jammu", "shimla") else None, team == "partner", n) if ph else ""
+    return f"""
+<section class="section">
+  <div class="container">
+    <h2>{html.escape(h2)}</h2>
+    <p>{p1}</p>
+    {grid}
+    <p>{p2}</p>
+    <p>{p3}</p>
+  </div>
+</section>
+"""
+
 def city_page(key, c):
     slug = f"vrl-packers-and-movers-{key}"
     n = c["name"]
@@ -542,6 +585,7 @@ def city_page(key, c):
   </div>
 </section>
 {more}
+{keyword_section(key, c, team, off)}
 <section class="section section--tint">
   <div class="container">
     <h2>What a move costs in {n}</h2>
