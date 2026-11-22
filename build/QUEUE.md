@@ -51,7 +51,11 @@
 - [x] Pune (+ Delhi, Bengaluru, Hyderabad, Chennai, Kolkata, Ahmedabad) — 2026-11-12
 - [x] Hyderabad (+ Delhi, Mumbai, Bengaluru, Chennai, Pune, Kolkata) — 2026-11-12
 - [x] Chennai (+ Delhi, Mumbai, Bengaluru, Hyderabad, Pune, Kolkata) — 2026-11-13
-- [ ] Kolkata, Gurugram, Noida, Jaipur
+- [x] Kolkata (+ Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Pune), Jaipur (+ Delhi, Mumbai, Pune, Ahmedabad, Bengaluru), Gurugram (+ Bengaluru, Mumbai, Pune, Hyderabad, Chennai, Kolkata) — 2026-11-22, 2 checks passed. New format: ~2,200-2,650 words, 3-4 extra content sections, keyword section with car/bike rates + honest "best packers" check, 2 inline photos + 2 end photos (unique 4-sets), 7 FAQs. Content in build/cd_<city>.py. Linked from footer, home, return-route links.
+- [ ] HELD for Deepak (2026-11-22): Jaipur to Hyderabad (content ready in cd_jaipur.py, filtered out in city_data.py) — road km sources 1,380-1,558; band 500-1,500 or 1,500+?
+- [ ] Ask Deepak (2026-11-22, left off pages as "written figure after survey"): Kolkata city <-> Howrah / Salt Lake / New Town / Dum Dum (different districts, one metro) — local band like Delhi NCR? Gurugram <-> Noida / Greater Noida / Ghaziabad (~50 km NCR) — local band? Moves inside Salt Lake/New Town/Rajarhat are shown as local (same district) — confirm.
+- [ ] Noida (+ Bengaluru, Mumbai, Pune, Hyderabad, Chennai, Kolkata)
+- [ ] Next: upgrade the 42 older packers-and-movers-<city> / route pages to the new format (more sections + keyword section + photos) via `photos`/`more` fields in city_data.py
 - [ ] Tricity origin routes: Chandigarh/Panchkula/Mohali/Zirakpur to Delhi, Gurugram, Noida, Jaipur, Bengaluru, Pune, Mumbai, Hyderabad
 - [ ] Jammu and Shimla origin routes
 - [ ] Next 20 cities: Lucknow, Ahmedabad, Indore, Bhopal, Nagpur, Surat, Vadodara, Kanpur, Patna, Bhubaneswar, Kochi, Coimbatore, Visakhapatnam, Ghaziabad, Faridabad, Greater Noida, Ludhiana, Amritsar, Dehradun, Lucknow
@@ -67,7 +71,7 @@
 
 ## Fix backlog (found by checkers, old pages)
 - [x] (2026-11-13) VRL city pages: full 60+ link list replaced by short "VRL Packers and Movers near <city>" regional block (same-state, rotated) — duplicate share dropped from ~0.64 to <0.57; brand page + index keep the full list
-- [ ] Reverse route cross-links: delhi/mumbai/bengaluru/pune/hyderabad-to-chennai should link chennai-to-X (and vice versa)
+- [x] Reverse route cross-links: every route page now links its return route and the destination city page when they exist (generator, 2026-11-22)
 - [x] Kurali <-> Mohali/Kharar stays on up to 500 km band — Deepak 2026-11-13: keep as is
 - [x] (done 2026-11-12) switch Solan, Baddi, Nalagarh, Rajpura, Ambala, Patiala VRL pages to team="own" (own Panchkula crew, coordinated from Panchkula, no office there) in build/vrl_city_data.py; rewrite their partner-team sentences and FAQs; regenerate; 2 checks; publish.
 - [x] (done 2026-11-12: Faridabad, Ghaziabad, Pune; Karnal village FAQ waits for Deepak) replace every "quoted after survey" for same-metro moves with the local house band (Delhi<->Noida/Gurugram/Faridabad/Ghaziabad, Mumbai<->Thane/Navi Mumbai, Pune<->Pimpri-Chinchwad, Tricity<->Dera Bassi etc.) on: vrl-packers-and-movers-faridabad/ghaziabad/noida/dera-bassi/karnal(check), packers-and-movers-pune and any route/city page with that wording; 2 checks; publish.

@@ -116,6 +116,98 @@ def crumbs(items):
 def faq_section(faqs):
     return G.faq_block(faqs)
 
+# ---------- 2026-11-22: richer content for new city/route pages (Deepak 2026-11-16 + 2026-11-21) ----------
+import hashlib
+def _pick(key):
+    h = int(hashlib.md5(key.encode()).hexdigest(), 16)
+    return lambda opts, salt: opts[(h >> (salt * 4)) % len(opts)]
+
+def more_sections(more, start_tint=False):
+    out = ""
+    for i, (h, ps) in enumerate(more or []):
+        tint = ' section--tint' if (i % 2 == 1) != start_tint else ''
+        paras = ''.join(f'<p>{p}</p>' for p in (ps if isinstance(ps, (list, tuple)) else [ps]))
+        out += f"""
+<section class="section{tint}">
+  <div class="container">
+    <h2>{e(h)}</h2>
+    {paras}
+  </div>
+</section>
+"""
+    return out
+
+def photo_block(keys, city, title, lead):
+    if not keys: return ""
+    return f"""
+<section class="section">
+  <div class="container">
+    <h2>{e(title)}</h2>
+    <p>{lead}</p>
+    {G.photo_grid(keys, None, True, city)}
+  </div>
+</section>
+"""
+
+def city_keyword_section(ck, c):
+    n = c["name"]; v = _pick(ck)
+    ar = [a for a in c["areas"] if " and " not in a][:6]
+    a1 = ", ".join(e(a) for a in ar[:-1]) + f" and {e(ar[-1])}"
+    h2 = v([f"Packers and movers {n}: house, car and bike shifting", f"Home, car and bike shifting with packers and movers in {n}", f"Packers and movers in {n} for homes, cars and bikes"], 1)
+    p1 = v([
+        f"People find us by searching packers and movers {n}, home shifting in {n} or by our old name, VRL Packers and Movers {n}. Every booking reaches the same 24-hour line, and homes in {a1} get the same written estimate and GST bill.",
+        f"Whether you type packers and movers {n}, {n} shifting charges or VRL Packers and Movers {n}, the call comes to one 24-hour line. Families in {a1} get one written estimate, one coordinator and one GST bill.",
+        f"Home shifting in {n} is booked the same way from {a1} and every other part of the city: one call, a survey, a written quote. Some customers still search for us as VRL Packers and Movers {n}, our name before October 2026."], 2)
+    p2 = v([
+        f"Car shifting from {n} is quoted on the same estimate as the house. Up to 500 km, a hatchback on a car carrier is roughly Rs 5,500 to 9,000 plus GST and a sedan roughly Rs 6,500 to 10,500 plus GST; from 500 to 1,500 km a hatchback is roughly Rs 9,000 to 15,000 plus GST. Bike shifting up to 500 km is roughly Rs 2,500 to 4,000 plus GST for a scooter and Rs 3,000 to 4,500 plus GST for a bike up to 150cc.",
+        f"A car or bike leaving {n} gets its own line on the quote. For 500 to 1,500 km, a compact SUV is roughly Rs 12,000 to 19,000 plus GST and an SUV or MUV roughly Rs 14,000 to 22,000 plus GST. A scooter over the same distance is roughly Rs 3,500 to 5,500 plus GST and a 150 to 350cc bike roughly Rs 5,500 to 8,000 plus GST.",
+        f"Vehicles from {n} move on the same booking. Over 1,500 km, a hatchback is roughly Rs 13,000 to 22,000 plus GST and a sedan roughly Rs 15,000 to 25,000 plus GST; a bike up to 150cc is roughly Rs 5,000 to 7,500 plus GST and a premium bike above 350cc roughly Rs 10,000 to 14,500 plus GST. There is no separate local car or bike rate."], 3)
+    p3 = v([
+        f"Looking for the best packers and movers in {n}? Judge any company, including us, on four plain checks: a written estimate with a GSTIN, an item list signed at loading and at delivery, one named coordinator, and a phone number you can call back.",
+        f"To pick the best packers and movers {n} has for your move, ask three things before paying anything: the quote in writing with a GST number on it, the name of the person on the phone during transit, and the inventory sheet before the truck leaves.",
+        f"Every company claims to be the best packers and movers in {n}, so ask for proof instead: a GST invoice, a signed inventory list, photos of your car or bike at pickup and a written figure before any advance. We give all of these in writing."], 4)
+    ph = c.get("photos", [])[:2]
+    return f"""
+<section class="section">
+  <div class="container">
+    <h2>{e(h2)}</h2>
+    <p>{p1}</p>
+    {G.photo_grid(ph, None, True, n)}
+    <p>{p2}</p>
+    <p>{p3}</p>
+  </div>
+</section>
+"""
+
+def route_keyword_section(ck, c, r, b):
+    frm, to = c["name"], r["to"]; v = _pick(ck + r["key"])
+    hb, sd, sv = (CAR[0][2][b], CAR[1][2][b], CAR[3][2][b]); sc, bk = BIKE[0][2][b], BIKE[1][2][b]
+    h2 = v([f"Packers and movers {frm} to {to}: house, car and bike", f"{frm} to {to} shifting: house, car and bike on one booking", f"Car and bike shifting from {frm} to {to}, with the house"], 1)
+    p1 = v([
+        f"Searches for packers and movers {frm} to {to}, {frm} to {to} shifting charges or VRL Packers and Movers {frm} all reach the same 24-hour line. You get one written estimate and one GST bill for the whole {frm} to {to} move.",
+        f"Whether you look for {frm} to {to} packers and movers, home shifting from {frm} to {to} or our old name, VRL Packers and Movers {frm}, the booking comes to one coordinator who stays on your number until the last carton is unpacked in {to}.",
+        f"Most customers on this route search for {frm} to {to} shifting charges first. The charts above answer that, and the survey turns the band into one written figure. Some still know us as VRL Packers and Movers {frm}, our name before October 2026."], 2)
+    p2 = v([
+        f"Car shifting from {frm} to {to} on a carrier is roughly {rng(hb)} for a hatchback, {rng(sd)} for a sedan and {rng(sv)} for an SUV or MUV, plus GST. Bike shifting is roughly {rng(sc)} for a scooter and {rng(bk)} for a bike up to 150cc, plus GST.",
+        f"For the car, budget roughly {rng(sd)} plus GST for a sedan or {rng(hb)} plus GST for a hatchback on this route; an SUV or MUV is roughly {rng(sv)} plus GST. A scooter goes for roughly {rng(sc)} and a motorcycle up to 150cc for roughly {rng(bk)}, both plus GST.",
+        f"A bike packed in foam and cardboard costs roughly {rng(bk)} plus GST up to 150cc and {rng(sc)} plus GST for a scooter. A car on a carrier costs roughly {rng(hb)} plus GST for a hatchback, {rng(sd)} plus GST for a sedan and {rng(sv)} plus GST for an SUV or MUV."], 3)
+    p3 = v([
+        f"Looking for the best packers and movers from {frm} to {to}? Judge any company, including us, on plain checks: a written estimate with a GSTIN, a signed item list at both ends, a named coordinator and a driver number shared at loading.",
+        f"Before you choose the best packers and movers for {frm} to {to}, ask for the quote in writing with a GST number, the inventory sheet before the truck leaves and photos of the car or bike at pickup. A genuine mover agrees to all of it.",
+        f"Every company claims to be the best packers and movers from {frm} to {to}, so ask for proof instead of promises: a GST invoice, a signed inventory list, transit insurance offered in writing and no advance before the estimate is on paper."], 4)
+    ph = r.get("photos", [])[:2]
+    return f"""
+<section class="section">
+  <div class="container">
+    <h2>{e(h2)}</h2>
+    <p>{p1}</p>
+    {G.photo_grid(ph, None, True, frm)}
+    <p>{p2}</p>
+    <p>{p3}</p>
+  </div>
+</section>
+"""
+
 # ---------- route page ----------
 def route_page(ck, c, r):
     frm, to, km = c["name"], r["to"], r["km"]
@@ -183,10 +275,20 @@ def route_page(ck, c, r):
   </div>
 </section>
 """
+    if r.get("photos"):
+        out += more_sections(r.get("more"))
+        out += route_keyword_section(ck, c, r, b)
     out += G.trust_section(frm)
     out += G.PROCESS
+    if r.get("photos"):
+        out += photo_block(r["photos"][2:], frm, "Our packing standard on this route", f"Real photos of the 1st VRL crew at work. Partner teams on the {e(frm)} to {e(to)} route follow the same packing standard, item list and branded tape.")
     others = [x for x in c["routes"] if x["key"] != r["key"]]
     links = "\n".join(f'      <a href="/packers-and-movers-{ck}-to-{x["key"]}">{e(frm)} to {e(x["to"])}</a>' for x in others)
+    rev = CITY_DATA.get(r["key"])
+    if rev and any(y["key"] == ck for y in rev["routes"]):
+        links += f'\n      <a href="/packers-and-movers-{r["key"]}-to-{ck}">{e(rev["name"])} to {e(frm)} (return route)</a>'
+    if r["key"] in CITY_DATA:
+        links += f'\n      <a href="/packers-and-movers-{r["key"]}">Packers and Movers {e(CITY_DATA[r["key"]]["name"])}</a>' 
     out += f"""
 <section class="section section--tint">
   <div class="container">
@@ -246,8 +348,13 @@ def city_page(ck, c):
   </div>
 </section>
 """
+    if c.get("photos"):
+        out += more_sections(c.get("more"), True)
+        out += city_keyword_section(ck, c)
     out += G.trust_section(n)
     out += G.PROCESS
+    if c.get("photos"):
+        out += photo_block(c["photos"][2:], n, f"Our packing standard for home shifting in {n}", f"Real photos of the 1st VRL crew at work. Partner teams in {e(n)} follow the same packing standard, item list and branded tape.")
     out += G.faq_block(faqs)
     out += G.footer()
     return slug, out

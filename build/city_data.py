@@ -601,3 +601,18 @@ ROUTE_EXTRA = {
   faqs=[("Can I send my bike from Chennai to Kolkata?","Yes. A scooter costs Rs 4,500 to 7,000, a bike up to 150cc Rs 5,000 to 7,500, a 150cc to 350cc bike such as a Classic 350 Rs 7,000 to 10,000 and a premium bike above 350cc Rs 10,000 to 14,500 on this route, plus GST."),
         ("Can you shift an office from Chennai to Kolkata?","Yes. A small office of up to 10 workstations costs Rs 55,000 to 90,000 and a medium office of 10 to 30 workstations Rs 1,10,000 to 2,00,000 on this route, plus GST. Larger offices are priced after a survey.")]),
 }
+
+# 2026-11-22: new city batches live in build/cd_<city>.py (CITY = dict(...), EXTRA = {(city, dest): dict(...)})
+import importlib as _il, sys as _sys
+from pathlib import Path as _P
+_sys.path.insert(0, str(_P(__file__).parent))
+for _ck in ["kolkata", "jaipur", "gurugram"]:
+    try:
+        _m = _il.import_module(f"cd_{_ck}")
+    except ImportError:
+        continue
+    _c = dict(_m.CITY)
+    # Held for Deepak (2026-11-22): Jaipur-Hyderabad road km sources range 1,380-1,558 (band edge); content kept, page not built
+    _c["routes"] = [r for r in _c["routes"] if (_ck, r["key"]) not in {("jaipur", "hyderabad")}]
+    CITY_DATA[_ck] = _c
+    ROUTE_EXTRA.update(_m.EXTRA)

@@ -270,6 +270,9 @@ def footer():
         <a href="/packers-and-movers-pune">Packers and Movers Pune</a>
         <a href="/packers-and-movers-hyderabad">Packers and Movers Hyderabad</a>
         <a href="/packers-and-movers-chennai">Packers and Movers Chennai</a>
+        <a href="/packers-and-movers-kolkata">Packers and Movers Kolkata</a>
+        <a href="/packers-and-movers-jaipur">Packers and Movers Jaipur</a>
+        <a href="/packers-and-movers-gurugram">Packers and Movers Gurugram</a>
         <a href="/packers-and-movers-jammu">Packers and Movers Jammu</a>
         <a href="/packers-and-movers-shimla">Packers and Movers Shimla</a>
         <a href="/privacy-policy">Privacy Policy</a>
