@@ -52,3 +52,31 @@ Pages studied: agarwalpackers.com/packersmoverschandigarh.html, agarwalpackers.i
 - [ ] Page "VRL Packers and Movers price list / charges 2026" (rate card explained by band, examples, cost factors) — targets the price-intent search.
 - [ ] Cost-factor list (floor/lift, parking, packing grade) near the rate chart.
 - [ ] Value-added services (carpenter, electrician, AC/appliance install) — only if Deepak confirms we offer them (asked 2026-11-16).
+
+## 2026-11-23 — Monday review: nobroker.in, porter.in, agarwalpackers.in (Noida), Google top results
+Pages studied: nobroker.in/packers-and-movers/noida-to-hyderabad, porter.in/packers-and-movers/greater-noida, agarwalpackers.in/location/noida.html + its blog "top things to know before hiring packers and movers in Noida"; Google results for "vrl packers and movers" and "packers and movers noida". ompackersindia.com does not rank for Noida (only IndiaMART listings). Our live pages could not be fetched this run (permission timeout), so our side was checked from `site/packers-and-movers-gurugram.html` (~2,680 words), `-gurugram-to-mumbai.html` and `vrl-packers-and-movers-panchkula.html` (~1,680 words).
+
+### What they do better (new this week)
+- **"Within city / Between cities" switch** (NoBroker hero): the visitor picks the move type first, then sees the right prices. Maps cleanly onto our LOCAL band vs distance bands.
+- **Small-move answer.** NoBroker FAQ "We have very few items, the quote is very costly"; Porter has a "Nano/Micro shifting" row. We have no line for people moving a few items only.
+- **Timing / lead-time answers.** NoBroker: "Why are weekend and month-end prices different?", "Date not fixed yet, can I book?"; Agarwal: "How much time before shifting should I contact you?" Our Gurugram page says "weekend" once and never answers "how early to book".
+- **Return-direction route pages.** Porter/NoBroker have both "X to Noida" and "Noida to X". We have `gurugram-to-mumbai` but no `mumbai-to-gurugram`, no `bengaluru-to-gurugram`, nothing "to Noida".
+- **City buyer-guide posts linking to the city page** (Agarwal Noida blog: pre-move survey, compare 2-3 written quotes, avoid month-end rush). Simple, useful, ranks for long-tail.
+- **Packing grades named** (Porter: single-layer default vs multi-layer; NoBroker comparison table of what is included). Visitors understand why prices differ inside a band.
+- **Brand SERP:** "vrl packers and movers" is still all directories (Clutch, IndiaMART Pune, asklaila Bangalore, thepackersmovers) plus complaint sites (complaintsboard, consumercomplaints) about other firms using the VRL name. Searchers can easily mix us up with them.
+
+### Where we are already better
+- Price ranges by real distance band on every page. Porter shows three different "from" prices on one page (Rs 749 / 1,200 / 1,500); NoBroker's FAQ price (Rs 4,950) does not match its own table. Agarwal shows no prices.
+- Transit time on route pages (e.g. "5 to 7 days" Gurugram-Mumbai); NoBroker route page has none.
+- Accurate local text. Agarwal's Noida page has copied Wikipedia text with errors (Bharatpur/Brij region, wrong temperature, "[citation needed]") and shows a Ghaziabad branch address. Porter's Greater Noida form defaults to "delhi" and its reviews are from other cities.
+- One phone number, GSTIN, honest own-crew vs partner wording, clean FAQPage/Breadcrumb/Service JSON-LD.
+
+### What NOT to copy
+- "100% damage & delay protection / We pay", "Lowest price guarantee", "India's largest", 42+ years, 20L+ customers, 1600+ locations, record-book/award PDFs, own IBA approval, corporate client logos, press logos, "recent trips" feed with names (we have no verified data for it), "Best packers and movers in <city>" in the H1, their text.
+
+### Ideas queued (through the 2-check workflow)
+- [ ] Small-move FAQ on new city pages: "Moving only a few items?" pointing to the 1RK row (local Rs 3,000-6,500, up to 500 km Rs 8,500-15,000, excl. 18% GST) and saying the exact figure is given after the call. No new price tier.
+- [ ] "How early should I book?" FAQ on new city/route pages: share the date as soon as it is known, callback under 30 minutes, 24-hour booking line +91 82640 91243. No claim about weekend surcharges (not in our rate card).
+- [ ] Return-direction route pages for famous pairs only: Mumbai/Bengaluru/Pune/Hyderabad -> Gurugram and -> Noida (and Delhi -> Tricity if missing). Same rate card, unique journey text, partner-team wording at the far end.
+- [ ] Route calculator / quote form: "Within city / Between cities" choice that shows the LOCAL band for same-city and same-metro moves listed in CLAUDE.md, and the distance bands otherwise (check quote-send.php first; merges with the 11-13 form-fields item).
+- [ ] Raise priority of the 11-16 "How to check you are talking to the real 1st VRL" box: the brand SERP now also shows complaint pages about other "VRL Packers" firms.

@@ -604,15 +604,17 @@ ROUTE_EXTRA = {
 
 # 2026-11-22: new city batches live in build/cd_<city>.py (CITY = dict(...), EXTRA = {(city, dest): dict(...)})
 import importlib as _il, sys as _sys
+# Held for Deepak: route km sources straddle a band edge (content kept, page not built)
+_HELD = {("jaipur", "hyderabad"), ("noida", "hyderabad"), ("noida", "kolkata"), ("noida", "pune"), ("lucknow", "pune")}
 from pathlib import Path as _P
 _sys.path.insert(0, str(_P(__file__).parent))
-for _ck in ["kolkata", "jaipur", "gurugram"]:
+for _ck in ["kolkata", "jaipur", "gurugram", "noida", "lucknow", "ahmedabad"]:
     try:
         _m = _il.import_module(f"cd_{_ck}")
     except ImportError:
         continue
     _c = dict(_m.CITY)
     # Held for Deepak (2026-11-22): Jaipur-Hyderabad road km sources range 1,380-1,558 (band edge); content kept, page not built
-    _c["routes"] = [r for r in _c["routes"] if (_ck, r["key"]) not in {("jaipur", "hyderabad")}]
+    _c["routes"] = [r for r in _c["routes"] if (_ck, r["key"]) not in _HELD]
     CITY_DATA[_ck] = _c
     ROUTE_EXTRA.update(_m.EXTRA)

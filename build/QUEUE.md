@@ -54,11 +54,13 @@
 - [x] Kolkata (+ Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Pune), Jaipur (+ Delhi, Mumbai, Pune, Ahmedabad, Bengaluru), Gurugram (+ Bengaluru, Mumbai, Pune, Hyderabad, Chennai, Kolkata) — 2026-11-22, 2 checks passed. New format: ~2,200-2,650 words, 3-4 extra content sections, keyword section with car/bike rates + honest "best packers" check, 2 inline photos + 2 end photos (unique 4-sets), 7 FAQs. Content in build/cd_<city>.py. Linked from footer, home, return-route links.
 - [ ] HELD for Deepak (2026-11-22): Jaipur to Hyderabad (content ready in cd_jaipur.py, filtered out in city_data.py) — road km sources 1,380-1,558; band 500-1,500 or 1,500+?
 - [ ] Ask Deepak (2026-11-22, left off pages as "written figure after survey"): Kolkata city <-> Howrah / Salt Lake / New Town / Dum Dum (different districts, one metro) — local band like Delhi NCR? Gurugram <-> Noida / Greater Noida / Ghaziabad (~50 km NCR) — local band? Moves inside Salt Lake/New Town/Rajarhat are shown as local (same district) — confirm.
-- [ ] Noida (+ Bengaluru, Mumbai, Pune, Hyderabad, Chennai, Kolkata)
+- [x] Noida (+ Bengaluru, Mumbai, Chennai), Lucknow (+ Mumbai, Hyderabad, Kolkata, Bengaluru, Chennai), Ahmedabad (+ Pune, Delhi, Jaipur, Hyderabad, Chennai, Kolkata) — 2026-11-23, 17 pages, 2 checks passed (checker 1 fixed: held-route bands on Noida/Lucknow city text, Noida<->Ghaziabad local price removed, 4 photo-set clashes, NH44 joins at Sagar, Lucknow-Chennai 1,950 km, Lucknow-Hyderabad 1,300 km, Pune rain claim). Content in build/cd_noida/lucknow/ahmedabad.py.
+- [ ] HELD for Deepak (2026-11-23, band edge, content ready, filtered by _HELD in city_data.py): Noida to Pune (sources 1,289-1,475 km), Noida to Hyderabad (1,497-1,542), Noida to Kolkata (1,431-1,462; Delhi-Kolkata page uses 1,530 = 1,500+ band), Lucknow to Pune (1,352-1,462). Not written: Lucknow to Delhi/Noida (481-550 km), Ahmedabad to Mumbai (~525), Ahmedabad to Bengaluru (~1,500) — which band?
+- [ ] Ask Deepak (2026-11-23): Noida <-> Ghaziabad (5-10 km, different districts, one NCR) local band? Ahmedabad <-> Gandhinagar / GIFT City local band? Pages say "written figure after survey".
 - [ ] Next: upgrade the 42 older packers-and-movers-<city> / route pages to the new format (more sections + keyword section + photos) via `photos`/`more` fields in city_data.py
 - [ ] Tricity origin routes: Chandigarh/Panchkula/Mohali/Zirakpur to Delhi, Gurugram, Noida, Jaipur, Bengaluru, Pune, Mumbai, Hyderabad
 - [ ] Jammu and Shimla origin routes
-- [ ] Next 20 cities: Lucknow, Ahmedabad, Indore, Bhopal, Nagpur, Surat, Vadodara, Kanpur, Patna, Bhubaneswar, Kochi, Coimbatore, Visakhapatnam, Ghaziabad, Faridabad, Greater Noida, Ludhiana, Amritsar, Dehradun, Lucknow
+- [ ] Next 20 cities: Indore, Bhopal, Nagpur, Surat, Vadodara, Kanpur, Patna, Bhubaneswar, Kochi, Coimbatore, Visakhapatnam, Ghaziabad, Faridabad, Greater Noida, Ludhiana, Amritsar, Dehradun, Lucknow
 
 ## Phase 3 — new page types (from competitor study 2026-11-13, see COMPETITORS.md)
 - [ ] Service-in-city: home shifting / office shifting / car transport / bike transport in Chandigarh, Panchkula, Mohali, Zirakpur
@@ -82,4 +84,4 @@
 - [x] Decided 2026-11-12 (Deepak delegated): Faridabad<->Noida/Gurugram local band; moves around one city up to ~30 km local band (Karnal, Hisar, Moga updated); Hyderabad-Kolkata 1,490 km = 500-1,500 band; Pathankot-Delhi padding removed. Rules in CLAUDE.md.
 - Route rule (Deepak): only famous, high-search routes.
 - [ ] Minor (checkers): Panchkula/Zirakpur/Chandigarh/Mohali hero intro should contain "VRL Packers and Movers <city>"; reverse route pages (X-to-hyderabad) should cross-link hyderabad-to-X; consider grouping the long VRL city-links block by region
-- [x] Competitor review: ompackersindia.com done 2026-11-13; agarwalpackers.com/.in, porter.in, Google top results done 2026-11-16 (build/COMPETITORS.md). Next Monday: 2026-11-23
+- [x] Competitor review: ompackersindia.com done 2026-11-13; agarwalpackers.com/.in, porter.in, Google top results done 2026-11-16 (build/COMPETITORS.md). 2026-11-23 Monday review done (see COMPETITORS.md). Next Monday: 2026-11-30
