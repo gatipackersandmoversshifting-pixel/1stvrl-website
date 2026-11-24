@@ -58,9 +58,13 @@
 - [ ] HELD for Deepak (2026-11-23, band edge, content ready, filtered by _HELD in city_data.py): Noida to Pune (sources 1,289-1,475 km), Noida to Hyderabad (1,497-1,542), Noida to Kolkata (1,431-1,462; Delhi-Kolkata page uses 1,530 = 1,500+ band), Lucknow to Pune (1,352-1,462). Not written: Lucknow to Delhi/Noida (481-550 km), Ahmedabad to Mumbai (~525), Ahmedabad to Bengaluru (~1,500) — which band?
 - [ ] Ask Deepak (2026-11-23): Noida <-> Ghaziabad (5-10 km, different districts, one NCR) local band? Ahmedabad <-> Gandhinagar / GIFT City local band? Pages say "written figure after survey".
 - [ ] Next: upgrade the 42 older packers-and-movers-<city> / route pages to the new format (more sections + keyword section + photos) via `photos`/`more` fields in city_data.py
-- [ ] Tricity origin routes: Chandigarh/Panchkula/Mohali/Zirakpur to Delhi, Gurugram, Noida, Jaipur, Bengaluru, Pune, Mumbai, Hyderabad
+- [x] Chandigarh (own Panchkula crew, team="own" in generator) + Delhi, Gurugram, Noida, Mumbai, Pune, Hyderabad, Bengaluru; Indore (+ Mumbai, Pune, Delhi, Hyderabad, Ahmedabad, Bhopal); Bhopal (+ Delhi, Mumbai, Pune, Hyderabad, Indore) — 2026-11-24, 21 pages, 3 checks (checker 1 fixed: Classic 350 bike row, AC uninstall wording, Rau not 'within city'; checker 2 fixed: bikes bundled in 1 RK row on 5 pages, Dhamnod/Khalghat order, Silicon City side, Chandigarh page now links VRL Chandigarh/Panchkula/Mohali/Zirakpur; checker 3: 0 critical/0 should fix). Content in build/cd_chandigarh/indore/bhopal.py. New helpers: build/dup_check.py, build/used_photo_sets.py (only ~15 free 4-photo sets left — more real photos needed).
+- [ ] HELD for Deepak (2026-11-24, band edge, not written): Chandigarh to Jaipur (510-545 km), Indore to Bengaluru (1,400-1,480), Bhopal to Bengaluru (1,400-1,450)
+- [ ] Ask Deepak (2026-11-24): New Chandigarh / Mullanpur (Mohali district, 10-15 km) local Tricity band? Sanwer (Indore district, 25-35 km) local? Pages say written figure after survey.
+- [ ] Minor (checker 3 2026-11-24): near-identical FAQs 'Do Pune societies allow shifting on Sundays?' (indore/bhopal-to-pune) and 'Can two families share a truck' (chandigarh-to-bengaluru, indore/bhopal-to-hyderabad) — reword; route keyword section 'our old name, VRL Packers and Movers <partner city>' wording on all partner route pages
+- [ ] Tricity origin routes still to do: Panchkula/Mohali/Zirakpur origin (or keep only Chandigarh), Chandigarh to Kolkata/Chennai/Ahmedabad/Lucknow
 - [ ] Jammu and Shimla origin routes
-- [ ] Next 20 cities: Indore, Bhopal, Nagpur, Surat, Vadodara, Kanpur, Patna, Bhubaneswar, Kochi, Coimbatore, Visakhapatnam, Ghaziabad, Faridabad, Greater Noida, Ludhiana, Amritsar, Dehradun, Lucknow
+- [ ] Next 20 cities (Indore, Bhopal done 2026-11-24): Nagpur, Surat, Vadodara, Kanpur, Patna, Bhubaneswar, Kochi, Coimbatore, Visakhapatnam, Ghaziabad, Faridabad, Greater Noida, Ludhiana, Amritsar, Dehradun, Lucknow
 
 ## Phase 3 — new page types (from competitor study 2026-11-13, see COMPETITORS.md)
 - [ ] Service-in-city: home shifting / office shifting / car transport / bike transport in Chandigarh, Panchkula, Mohali, Zirakpur

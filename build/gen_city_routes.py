@@ -137,14 +137,14 @@ def more_sections(more, start_tint=False):
 """
     return out
 
-def photo_block(keys, city, title, lead):
+def photo_block(keys, city, title, lead, partner=True):
     if not keys: return ""
     return f"""
 <section class="section">
   <div class="container">
     <h2>{e(title)}</h2>
     <p>{lead}</p>
-    {G.photo_grid(keys, None, True, city)}
+    {G.photo_grid(keys, None, partner, city)}
   </div>
 </section>
 """
@@ -172,7 +172,7 @@ def city_keyword_section(ck, c):
   <div class="container">
     <h2>{e(h2)}</h2>
     <p>{p1}</p>
-    {G.photo_grid(ph, None, True, n)}
+    {G.photo_grid(ph, None, c.get("team") != "own", n)}
     <p>{p2}</p>
     <p>{p3}</p>
   </div>
@@ -201,7 +201,7 @@ def route_keyword_section(ck, c, r, b):
   <div class="container">
     <h2>{e(h2)}</h2>
     <p>{p1}</p>
-    {G.photo_grid(ph, None, True, frm)}
+    {G.photo_grid(ph, None, c.get("team") != "own", frm)}
     <p>{p2}</p>
     <p>{p3}</p>
   </div>
@@ -278,10 +278,13 @@ def route_page(ck, c, r):
     if r.get("photos"):
         out += more_sections(r.get("more"))
         out += route_keyword_section(ck, c, r, b)
-    out += G.trust_section(frm)
+    out += G.trust_section(None if c.get("team") == "own" else frm)
     out += G.PROCESS
     if r.get("photos"):
-        out += photo_block(r["photos"][2:], frm, "Our packing standard on this route", f"Real photos of the 1st VRL crew at work. Partner teams on the {e(frm)} to {e(to)} route follow the same packing standard, item list and branded tape.")
+        if c.get("team") == "own":
+            out += photo_block(r["photos"][2:], frm, "Our packing standard on this route", f"Real photos of the 1st VRL crew at work. In {e(frm)} our own Panchkula crew packs and loads; the team that unloads in {e(to)} works from the same item list and handling standard.", False)
+        else:
+            out += photo_block(r["photos"][2:], frm, "Our packing standard on this route", f"Real photos of the 1st VRL crew at work. Partner teams on the {e(frm)} to {e(to)} route follow the same packing standard, item list and branded tape.")
     others = [x for x in c["routes"] if x["key"] != r["key"]]
     links = "\n".join(f'      <a href="/packers-and-movers-{ck}-to-{x["key"]}">{e(frm)} to {e(x["to"])}</a>' for x in others)
     rev = CITY_DATA.get(r["key"])
@@ -351,10 +354,13 @@ def city_page(ck, c):
     if c.get("photos"):
         out += more_sections(c.get("more"), True)
         out += city_keyword_section(ck, c)
-    out += G.trust_section(n)
+    out += G.trust_section(None if c.get("team") == "own" else n)
     out += G.PROCESS
     if c.get("photos"):
-        out += photo_block(c["photos"][2:], n, f"Our packing standard for home shifting in {n}", f"Real photos of the 1st VRL crew at work. Partner teams in {e(n)} follow the same packing standard, item list and branded tape.")
+        if c.get("team") == "own":
+            out += photo_block(c["photos"][2:], n, f"Our crew at work: home shifting in {n}", f"Real photos of the 1st VRL crew at work. Moves in {e(n)} and the Tricity are packed and loaded by our own crew from the Panchkula office.", False)
+        else:
+            out += photo_block(c["photos"][2:], n, f"Our packing standard for home shifting in {n}", f"Real photos of the 1st VRL crew at work. Partner teams in {e(n)} follow the same packing standard, item list and branded tape.")
     out += G.faq_block(faqs)
     out += G.footer()
     return slug, out
