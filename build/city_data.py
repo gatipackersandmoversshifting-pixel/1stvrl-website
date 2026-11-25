@@ -608,7 +608,7 @@ import importlib as _il, sys as _sys
 _HELD = {("jaipur", "hyderabad"), ("noida", "hyderabad"), ("noida", "kolkata"), ("noida", "pune"), ("lucknow", "pune")}
 from pathlib import Path as _P
 _sys.path.insert(0, str(_P(__file__).parent))
-for _ck in ["kolkata", "jaipur", "gurugram", "noida", "lucknow", "ahmedabad", "chandigarh", "indore", "bhopal"]:
+for _ck in ["kolkata", "jaipur", "gurugram", "noida", "lucknow", "ahmedabad", "chandigarh", "indore", "bhopal", "nagpur", "surat", "vadodara"]:
     try:
         _m = _il.import_module(f"cd_{_ck}")
     except ImportError:

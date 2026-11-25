@@ -64,7 +64,10 @@
 - [ ] Minor (checker 3 2026-11-24): near-identical FAQs 'Do Pune societies allow shifting on Sundays?' (indore/bhopal-to-pune) and 'Can two families share a truck' (chandigarh-to-bengaluru, indore/bhopal-to-hyderabad) — reword; route keyword section 'our old name, VRL Packers and Movers <partner city>' wording on all partner route pages
 - [ ] Tricity origin routes still to do: Panchkula/Mohali/Zirakpur origin (or keep only Chandigarh), Chandigarh to Kolkata/Chennai/Ahmedabad/Lucknow
 - [ ] Jammu and Shimla origin routes
-- [ ] Next 20 cities (Indore, Bhopal done 2026-11-24): Nagpur, Surat, Vadodara, Kanpur, Patna, Bhubaneswar, Kochi, Coimbatore, Visakhapatnam, Ghaziabad, Faridabad, Greater Noida, Ludhiana, Amritsar, Dehradun, Lucknow
+- [x] Nagpur (+ Mumbai, Pune, Delhi, Bengaluru, Kolkata), Surat (+ Mumbai, Pune, Delhi, Bengaluru, Hyderabad), Vadodara (+ Mumbai, Delhi, Pune, Hyderabad) — 2026-11-25, 17 pages, 3 checks (checker 1 fixed: Hazira "refinery" -> petrochemical, Pune RTO 30-day address rule, Samruddhi km, Nagpur-Kolkata via Sambalpur/NH49, Surat-Delhi km by line, 3 repeated Delhi FAQs, Bardoli 32 km = up to 500 band; checker 2 fixed: Vadodara-Delhi expressway km, 8 near-duplicate FAQs, Butibori ~25 km = local, Vadodara-Hyderabad 4-6 days, Khamla; checker 3: Savli/Karjan/Dabhoi band wording, then 0 critical/0 should fix). Content in build/cd_nagpur/surat/vadodara.py.
+- [ ] Not written (2026-11-25): Nagpur to Hyderabad (~500 km, band edge), Vadodara to Bengaluru (~1,450-1,550 risk) — ask Deepak which band
+- [ ] Minor (checkers 2026-11-25): generator template FAQ "How much do packers and movers charge from X to Y?" identical on all route pages — vary in gen_city_routes.py; vadodara-to-pune/-hyderabad have only 3 photos (1 in end grid) — add a 4th when new real photos arrive (4-photo sets now used up: only 3-photo sets free)
+- [ ] Next 20 cities (Indore, Bhopal, Nagpur, Surat, Vadodara done): Kanpur (Delhi ~480-500 edge), Patna, Bhubaneswar, Kochi, Coimbatore, Visakhapatnam, Ghaziabad, Faridabad, Greater Noida, Ludhiana, Amritsar, Dehradun, Lucknow
 
 ## Phase 3 — new page types (from competitor study 2026-11-13, see COMPETITORS.md)
 - [ ] Service-in-city: home shifting / office shifting / car transport / bike transport in Chandigarh, Panchkula, Mohali, Zirakpur
